@@ -24,7 +24,6 @@ in {
     home.packages = with pkgs; [ # alphabetical order
         git
         gh
-        fzf
         ripgrep
 
         spotify
@@ -55,6 +54,37 @@ in {
         EDITOR = "nvim";
     };
 
+    programs.fzf.enable = true;
+
+    # I have tried to use this, but I always resort back to using vim.
+    # programs.zed-editor = {
+    #     enable = true;
+    #     extensions = [
+    #         "nix"
+    #         "zig"
+    #     ];
+    #     userSettings = {
+    #         languages.Nix.language_servers = [ "nixd" "!nil" ];
+    #         lsp.nixd.settings.nixd.nixpkgs.expr = "import <nixpkgs> { }";
+    #         vim_mode = true;
+    #         # Visual
+    #         buffer_font_family = "Hack Nerd Font Mono";
+    #         cursor_shape = "block";
+    #         show_whitespaces = "trailing";
+    #         toolbar = {
+    #             breadcrumbs = false;
+    #             quick_actions = false;
+    #             selections_menu = false;
+    #             agent_review = false;
+    #             code_actions = false;
+    #         };
+    #         scrollbar.show = "never";
+    #         minimap.show = "never";
+    #         vertical_scroll_margin = 8; # Similar to my vim.
+    #         tab_bar.show = false;
+    #     };
+    # };
+
     programs.alacritty = {
         enable = true;
         settings = {
@@ -65,7 +95,7 @@ in {
                 normal = {
                     family = "Hack Nerd Font Mono";
                 };
-                size = if isDarwin then 20 else 13;
+                size = if isDarwin then 16 else 13;
             };
             colors.primary.background = "#000000";
             colors.primary.foreground= "#B4B3B5";
