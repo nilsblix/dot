@@ -304,11 +304,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1757097273,
-        "narHash": "sha256-GNG3dI3z8KkdcJ9kqG1QCK9bzGEf4kPf8kBXsdU7DMo=",
+        "lastModified": 1757248314,
+        "narHash": "sha256-vfuMD9sveMbSrGqFUFGwZ3Ls42onfWdQURaZMYzhHPY=",
         "owner": "nilsblix",
         "repo": "nvim.nix",
-        "rev": "e4347fa0ac425db4f4fdbd938769666c3d4fec3f",
+        "rev": "2c629e4966c7dc2e8ef44084c30c97bf25de5dce",
         "type": "github"
       },
       "original": {

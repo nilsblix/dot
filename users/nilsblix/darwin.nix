@@ -31,6 +31,10 @@
     system = {
         # Unknown weird option for when updating the flake to 25.05
         primaryUser = "nilsblix";
+        keyboard = {
+            enableKeyMapping = true;
+            remapCapsLockToEscape = true;
+        };
         defaults = {
             dock = {
                 orientation = "bottom";

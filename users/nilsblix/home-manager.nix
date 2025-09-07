@@ -22,26 +22,16 @@ in {
     programs.home-manager.enable = true;
 
     home.packages = with pkgs; [ # alphabetical order
-        # Needed shells/cli-tools.
-        zsh
-        bash
         git
         gh
-        wget
-
+        fzf
         ripgrep
-        tree
-        fd
-        ranger
 
-        # Dev things.
-        dbgate
-        postman
-
-        # GUIs
         spotify
         firefox
         discord
+        dbgate
+        postman
 
         zig_0_14
         nodejs_24
@@ -49,7 +39,7 @@ in {
         # Overlays
         nvim-pkg
     ] ++ (if isDarwin then [
-        aerospace
+        # Nothing at the moment.
     ] else [ # Is on NixOS instead.
         xclip
         oversteer
@@ -57,20 +47,9 @@ in {
         heroic
     ]);
 
-    imports = [
-        ./tmux.nix
-    ];
-
-    home.file = {
-        ".local/bin/sessionizer.sh" = {
-            source = ./sessionizer.sh;
-            executable = true;
-        };
-        ".vimrc".source = ./vimrc;
-    } // (if isDarwin then {
-        ".config/aerospace/aerospace.toml".source = ./aerospace.toml;
+    home.file = if isDarwin then {
         ".config/karabiner/karabiner.json".source = ./karabiner.json;
-    } else {});
+    } else {};
 
     home.sessionVariables = {
         EDITOR = "nvim";
@@ -88,10 +67,6 @@ in {
                 };
                 size = if isDarwin then 20 else 13;
             };
-            window = {
-                dynamic_title = false;
-                title = "Terminal";
-            };
             colors.primary.background = "#000000";
             colors.primary.foreground= "#B4B3B5";
             mouse = {
@@ -102,8 +77,6 @@ in {
             };
         };
     };
-
-    programs.fzf.enable = true;
 
     programs.direnv = {
         enable = true;
@@ -117,7 +90,6 @@ in {
         initContent = lib.mkOrder 1000 ''
             function precmd() {
                 prompt="$(PROMPT_SHELL_TYPE=zsh ${inputs.prompt.packages.${pkgs.system}.default}/bin/prompt)"
-                # prompt="$(PROMPT_SHELL_TYPE=zsh ~/code/prompt/target/release/prompt)"
             }
         '';
     };
@@ -127,7 +99,6 @@ in {
         shellAliases = shellAliases "bash";
         initExtra = ''
             PS1="$(PROMPT_SHELL_TYPE=bash ${inputs.prompt.packages.${pkgs.system}.default}/bin/prompt)"
-            # PS1="$(PROMPT_SHELL_TYPE=bash ~/code/prompt/target/release/prompt)"
         '';
     };
 
@@ -149,10 +120,6 @@ in {
                 condition = "gitdir:~/code/kth/";
                 contents = {
                     user = secrets.kth;
-                    # user = {
-                    #     name = "Do not try to get my info.";
-                    #     email = "Templating";
-                    # };
                 };
             }
         ];

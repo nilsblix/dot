@@ -6,36 +6,6 @@
       "complex_modifications": {
         "rules": [
             {
-                "description": "Caps-lock => Esc or F12 (with left command)",
-                "manipulators": [
-                    {
-                        "type": "basic",
-                        "from": {
-                            "key_code": "caps_lock",
-                            "modifiers": {
-                                "mandatory": [ "left_command" ]
-                            }
-                        },
-                        "to": [{
-                            "key_code": "f12",
-                            "modifiers": [ "fn" ]
-                        }]
-                    },
-                    {
-                        "type": "basic",
-                        "from": {
-                            "key_code": "caps_lock",
-                            "modifiers": {
-                                "mandatory": [ "any" ]
-                            }
-                        },
-                        "to": [{
-                            "key_code": "escape"
-                        }]
-                    }
-                ]
-            },
-            {
                 "description": "Change right_command+hjkl to arrow keys",
                 "manipulators": [
                     {
