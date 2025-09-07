@@ -1,0 +1,96 @@
+# enable floating by default
+# [[on-window-detected]]
+#     check-further-callbacks = true
+#     run = "layout floating"
+[[on-window-detected]]
+    check-further-callbacks = true
+    run = "layout tiling"
+
+[[on-window-detected]]
+    if.window-title-regex-substring = "zigics"
+    run = "layout floating"
+
+[gaps]
+    inner.horizontal = 0
+    inner.vertical = 0
+    outer.left = 0
+    outer.bottom = 0
+    outer.top = 0
+    outer.right = 0
+
+[mode.main.binding]
+    f12 = "mode leader"
+    cmd-tab = "workspace-back-and-forth"
+
+[mode.leader.binding]
+    esc = "mode main"
+
+    e = [ "workspace e", "mode main" ]
+    f = [ "workspace f", "mode main" ]
+    c = [ "workspace c", "mode main" ]
+    s = [ "workspace s", "mode main" ]
+    m = [ "workspace m", "mode main" ]
+    n = [ "workspace n", "mode main" ]
+    w = [ "workspace w", "mode main" ]
+    t = [ "workspace t", "mode main" ]
+    d = [ "workspace d", "mode main" ]
+    p = [ "workspace p", "mode main" ]
+
+    h = [ "focus left", "mode main" ]
+    j = [ "focus down", "mode main" ]
+    k = [ "focus up", "mode main" ]
+    l = [ "focus right", "mode main" ]
+
+    shift-h = [ "move left", "mode main" ]
+    shift-j = [ "move down", "mode main" ]
+    shift-k = [ "move up", "mode main" ]
+    shift-l = [ "move right", "mode main" ]
+
+    shift-w = "mode workspaces"
+    shift-r = "mode raycast"
+    shift-m = "mode move_node"
+    shift-o = "mode open"
+
+    shift-t = [ "layout floating tiling", "mode main" ]
+
+[mode.workspaces.binding]
+    esc = "mode main"
+
+    h = [ "focus-monitor left", "mode main" ]
+    j = [ "focus-monitor down", "mode main" ]
+    k = [ "focus-monitor up", "mode main" ]
+    l = [ "focus-monitor right", "mode main" ]
+
+    shift-h = [ "move-workspace-to-monitor left", "mode main" ]
+    shift-j = [ "move-workspace-to-monitor down", "mode main" ]
+    shift-k = [ "move-workspace-to-monitor up", "mode main" ]
+    shift-l = [ "move-workspace-to-monitor right", "mode main" ]
+
+[mode.move_node.binding]
+    esc = "mode main"
+
+    e = [ "move-node-to-workspace e", "mode main" ]
+    f = [ "move-node-to-workspace f", "mode main" ]
+    c = [ "move-node-to-workspace c", "mode main" ]
+    s = [ "move-node-to-workspace s", "mode main" ]
+    m = [ "move-node-to-workspace m", "mode main" ]
+    n = [ "move-node-to-workspace n", "mode main" ]
+    w = [ "move-node-to-workspace w", "mode main" ]
+    t = [ "move-node-to-workspace t", "mode main" ]
+    d = [ "move-node-to-workspace d", "mode main" ]
+    p = [ "move-node-to-workspace p", "mode main" ]
+
+[mode.open.binding]
+    esc = "mode main"
+
+    e = [ "exec-and-forget open -a Alacritty", "mode main" ]
+    f = [ "exec-and-forget open -a Safari", "mode main" ]
+    m = [ "exec-and-forget open -a Messages", "mode main" ]
+    s = [ "exec-and-forget open -a Spotify", "mode main" ]
+    n = [ "exec-and-forget open -a Notes", "mode main" ]
+
+[mode.raycast.binding]
+    esc = "mode main"
+
+    m = [ "exec-and-forget open raycast://extensions/raycast/window-management/maximize", "mode main" ]
+    a = [ "exec-and-forget open raycast://extensions/raycast/system/toggle-system-appearance", "mode main" ]
