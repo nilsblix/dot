@@ -1,4 +1,4 @@
-# nixos-config
+# nixos-config.public
 
 Personal Nix flake configuration.
 
@@ -23,8 +23,8 @@ Personal Nix flake configuration.
 3. Clone this repository:
 
     ```bash
-    git clone https://github.com/nilsblix/nixos-config.git
-    cd nixos-config
+    git clone https://github.com/nilsblix/nixos-config.public.git
+    cd nixos-config.public
     ```
 
 4. Activate the configuration:
@@ -56,8 +56,8 @@ Personal Nix flake configuration.
 2. Clone this repository:
 
     ```bash
-    git clone https://github.com/nilsblix/nixos-config.git
-    cd nixos-config
+    git clone https://github.com/nilsblix/nixos-config.public.git
+    cd nixos-config.public
     ```
 
 3. Activate the configuration:
