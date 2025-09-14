@@ -13,6 +13,9 @@
         gd = "git diff";
         sesh = "~/.local/bin/sessionizer.sh";
     };
+
+    secretsFile = "${inputs.secrets}/secrets.nix";
+    secrets = if builtins.pathExists secretsFile then import secretsFile else {};
 in {
     home.username = "nilsblix";
     home.homeDirectory = if isDarwin then "/Users/nilsblix" else "/home/nilsblix";
@@ -25,6 +28,8 @@ in {
         git
         gh
         ripgrep
+
+        codex
 
         spotify
         firefox
@@ -51,6 +56,7 @@ in {
     } else {};
 
     home.sessionVariables = {
+        OPENAI_API_KEY = secrets.env_variables.openai_api_key;
         EDITOR = "nvim";
     };
 
@@ -97,6 +103,7 @@ in {
                 };
                 size = if isDarwin then 16 else 13;
             };
+            window.dynamic_title = true;
             colors.primary.background = "#000000";
             colors.primary.foreground= "#B4B3B5";
             mouse = {
@@ -132,10 +139,7 @@ in {
         '';
     };
 
-    programs.git = let
-        secretsFile = "${inputs.secrets}/secrets.nix";
-        secrets = if builtins.pathExists secretsFile then import secretsFile else {};
-    in {
+    programs.git = {
         enable = true;
         userName = "nilsblix";
         userEmail = secrets.personal_email;

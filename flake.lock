@@ -304,11 +304,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1757261633,
-        "narHash": "sha256-+XjUiLIkSdLx+xwL18ujjUKXN8BXG3sjP22Nvt8o8rw=",
+        "lastModified": 1757264165,
+        "narHash": "sha256-hMJnOLHk4DpGDMv0NGF7gJZhnidU7BrikDCfHlqxs7Y=",
         "owner": "nilsblix",
         "repo": "nvim.nix",
-        "rev": "2f821d35827f3a8cb6f6b01f50f229e57e25263b",
+        "rev": "14a3676c4edc8998a29a492b6e3caa318d615346",
         "type": "github"
       },
       "original": {
@@ -533,11 +533,11 @@
     "secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1757246455,
-        "narHash": "sha256-Nz2AwaiaFa+5SX0qgLmiBopB1X9UPYg+GyqkGgyndK4=",
+        "lastModified": 1757858572,
+        "narHash": "sha256-pK0DX3WnVy6N4XZMR8psJlDfWHVinY5QCPpylX/gtBA=",
         "ref": "refs/heads/main",
-        "rev": "8112e802175d1dc8c7c6e4706e297d9ee1186b3f",
-        "revCount": 3,
+        "rev": "bc689de16486ba3fd3059b4749cbdd8d9d9a9436",
+        "revCount": 4,
         "type": "git",
         "url": "https://github.com/nilsblix/nixos-config.private"
       },
