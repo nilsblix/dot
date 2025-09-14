@@ -533,11 +533,11 @@
     "secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1757858572,
-        "narHash": "sha256-pK0DX3WnVy6N4XZMR8psJlDfWHVinY5QCPpylX/gtBA=",
+        "lastModified": 1757860053,
+        "narHash": "sha256-Nz2AwaiaFa+5SX0qgLmiBopB1X9UPYg+GyqkGgyndK4=",
         "ref": "refs/heads/main",
-        "rev": "bc689de16486ba3fd3059b4749cbdd8d9d9a9436",
-        "revCount": 4,
+        "rev": "e28b84bbb186e411e867683e4a7eae7d40e41c0d",
+        "revCount": 5,
         "type": "git",
         "url": "https://github.com/nilsblix/nixos-config.private"
       },

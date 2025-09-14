@@ -29,8 +29,6 @@ in {
         gh
         ripgrep
 
-        codex
-
         spotify
         firefox
         discord
@@ -56,7 +54,6 @@ in {
     } else {};
 
     home.sessionVariables = {
-        OPENAI_API_KEY = secrets.env_variables.openai_api_key;
         EDITOR = "nvim";
     };
 
