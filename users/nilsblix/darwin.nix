@@ -25,6 +25,9 @@
             "surfshark"
             "google-chrome"
         ];
+        brews = [
+            "codex"
+        ];
         onActivation.cleanup = "zap";
     };
 
