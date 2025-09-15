@@ -4,6 +4,7 @@
     isDarwin = pkgs.stdenv.isDarwin;
 
     shellAliases = shell: {
+        vim = "nvim";
         ls = "ls --color=tty";
         l = "ls -al";
         drs = "sudo darwin-rebuild build switch --flake";
