@@ -15,6 +15,16 @@
         sesh = "~/.local/bin/sessionizer.sh";
     };
 
+    yaziCdScript = ''
+        function y() {
+            local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+            yazi "$@" --cwd-file="$tmp"
+            IFS= read -r -d "" cwd < "$tmp"
+            [ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+            rm -f -- "$tmp"
+        }
+    '';
+
     secretsFile = "${inputs.secrets}/secrets.nix";
     secrets = if builtins.pathExists secretsFile then import secretsFile else {};
 in {
@@ -60,34 +70,7 @@ in {
 
     programs.fzf.enable = true;
 
-    # I have tried to use this, but I always resort back to using vim.
-    # programs.zed-editor = {
-    #     enable = true;
-    #     extensions = [
-    #         "nix"
-    #         "zig"
-    #     ];
-    #     userSettings = {
-    #         languages.Nix.language_servers = [ "nixd" "!nil" ];
-    #         lsp.nixd.settings.nixd.nixpkgs.expr = "import <nixpkgs> { }";
-    #         vim_mode = true;
-    #         # Visual
-    #         buffer_font_family = "Hack Nerd Font Mono";
-    #         cursor_shape = "block";
-    #         show_whitespaces = "trailing";
-    #         toolbar = {
-    #             breadcrumbs = false;
-    #             quick_actions = false;
-    #             selections_menu = false;
-    #             agent_review = false;
-    #             code_actions = false;
-    #         };
-    #         scrollbar.show = "never";
-    #         minimap.show = "never";
-    #         vertical_scroll_margin = 8; # Similar to my vim.
-    #         tab_bar.show = false;
-    #     };
-    # };
+    programs.yazi.enable = true;
 
     programs.alacritty = {
         enable = true;
@@ -122,19 +105,19 @@ in {
     programs.zsh = {
         enable = true;
         shellAliases = shellAliases "zsh";
-        initContent = lib.mkOrder 1000 ''
+        initContent = lib.concatStrings [ ''
             function precmd() {
                 prompt="$(PROMPT_SHELL_TYPE=zsh ${inputs.prompt.packages.${pkgs.system}.default}/bin/prompt)"
             }
-        '';
+        '' yaziCdScript ];
     };
 
     programs.bash = {
         enable = true;
         shellAliases = shellAliases "bash";
-        initExtra = ''
+        initExtra = lib.concatStrings [ ''
             PS1="$(PROMPT_SHELL_TYPE=bash ${inputs.prompt.packages.${pkgs.system}.default}/bin/prompt)"
-        '';
+        '' yaziCdScript ];
     };
 
     programs.git = {
