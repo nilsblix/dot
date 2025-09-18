@@ -44,6 +44,7 @@ in systemFunc rec {
     ] ++ (if isDarwin && (darwin.declarativeHomebrew or false) then [
         inputs.nix-homebrew.darwinModules.nix-homebrew {
             nix-homebrew = {
+                mutableTaps = false;
                 enable = true;
                 enableRosetta = true;
                 user = user;

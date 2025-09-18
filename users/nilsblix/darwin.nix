@@ -1,4 +1,4 @@
-{ pkgs, ...}:
+{ config, pkgs, ...}:
 
 {
     imports = [
@@ -14,16 +14,14 @@
 
     homebrew = {
         enable = true;
-        taps = [
-            "homebrew/core"
-            "homebrew/cask"
-        ];
+        taps = builtins.attrNames config.nix-homebrew.taps;
         casks = [
             "raycast"
             "signal"
             "karabiner-elements"
             "surfshark"
             "google-chrome"
+            { name = "ghostty"; greedy = true; }
         ];
         brews = [
             "codex"
@@ -49,7 +47,7 @@
                 wvous-br-corner = 1; # off
                 persistent-apps = [
                     {
-                        app = "/Users/nilsblix/Applications/Home Manager Apps/Alacritty.app";
+                        app = "/Applications/Ghostty.app";
                     }
                 ];
             };
@@ -71,6 +69,10 @@
             screensaver = {
                 askForPassword = true;
                 askForPasswordDelay = 0;
+            };
+
+            finder = {
+                ShowPathbar = true;
             };
         };
     };
