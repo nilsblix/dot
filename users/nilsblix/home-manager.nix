@@ -62,6 +62,7 @@ in {
 
     home.file = if isDarwin then {
         ".config/karabiner/karabiner.json".source = ./karabiner.json;
+        ".config/ghostty/config".source = ./ghostty.config;
     } else {};
 
     home.sessionVariables = {
