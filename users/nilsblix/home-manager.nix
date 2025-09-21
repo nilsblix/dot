@@ -69,6 +69,14 @@ in {
         EDITOR = "nvim";
     };
 
+    # programs.tmux = {
+    #     enable = true;
+    #     baseIndex = 1;
+    #     prefix = "C-b";
+    #     disableConfirmationPrompt = true;
+    #     customPaneNavigationAndResize = true;
+    # };
+
     programs.fzf.enable = true;
 
     programs.yazi.enable = true;
