@@ -27,6 +27,8 @@
 
     secretsFile = "${inputs.secrets}/secrets.nix";
     secrets = if builtins.pathExists secretsFile then import secretsFile else {};
+
+    pua = import ./pua-bindings.nix { inherit lib; };
 in {
     home.username = "nilsblix";
     home.homeDirectory = if isDarwin then "/Users/nilsblix" else "/home/nilsblix";
@@ -67,6 +69,9 @@ in {
         EDITOR = "nvim";
     };
 
+    programs.fzf.enable = true;
+    programs.yazi.enable = true;
+
     programs.tmux = {
         enable = true;
         baseIndex = 1;
@@ -79,24 +84,25 @@ in {
             bind r source-file ~/.config/tmux/tmux.conf\; display-message "Config reloaded..."
 
             set -g status-position top
+            set -g status-justify absolute-centre
 
-            bind -n "\uE001" select-window -t 1
-            bind -n "\uE002" select-window -t 2
-            bind -n "\uE003" select-window -t 3
-            bind -n "\uE004" select-window -t 4
-            bind -n "\uE005" select-window -t 5
-            bind -n "\uE006" select-window -t 6
-            bind -n "\uE007" select-window -t 7
-            bind -n "\uE008" select-window -t 8
-            bind -n "\uE009" select-window -t 9
+            set -g message-style "bg=color88,fg=white"
+            set -g mode-style "bg=color88,fg=white"
 
-            bind -n "\E0010" kill-window
-        '';
+            set -g pane-border-style "fg=#063540"
+            set -g pane-active-border-style "fg=#268bd3"
+
+            set -g @FG_COLOR "#E6E6E7"
+            set -g @BG_COLOR "#2F2F2F"
+
+            set-option -g status-style 'bg=#{@BG_COLOR},fg=#{@FG_COLOR}'
+            set -g window-status-current-style 'bg=#545454,fg=#{@FG_COLOR}'
+            set -g window-status-current-format ' #I:#W* '
+
+            set -g status-left ' #S '
+            set -g status-right ' #h '
+        '' + pua.tmuxExtra;
     };
-
-    programs.fzf.enable = true;
-
-    programs.yazi.enable = true;
 
     programs.alacritty = {
         enable = true;
@@ -119,20 +125,7 @@ in {
             selection = {
                 save_to_clipboard = true;
             };
-            option_as_alt = "OnlyLeft";
-            keyboard.bindings = [
-                # https://docs.rs/winit/latest/winit/keyboard/enum.NamedKey.html
-                { key = "Key1"; mods = "Command"; chars = "\\uE001"; }
-                { key = "Key2"; mods = "Command"; chars = "\\uE002"; }
-                { key = "Key3"; mods = "Command"; chars = "\\uE003"; }
-                { key = "Key4"; mods = "Command"; chars = "\\uE004"; }
-                { key = "Key5"; mods = "Command"; chars = "\\uE005"; }
-                { key = "Key6"; mods = "Command"; chars = "\\uE006"; }
-                { key = "Key7"; mods = "Command"; chars = "\\uE007"; }
-                { key = "Key8"; mods = "Command"; chars = "\\uE008"; }
-                { key = "Key9"; mods = "Command"; chars = "\\uE009"; }
-                { key = "W"; mods = "Command"; chars = "\\uE0010"; }
-            ];
+            keyboard.bindings = pua.alacrittyBindings;
         };
     };
 
