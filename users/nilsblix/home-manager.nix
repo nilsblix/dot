@@ -96,7 +96,8 @@ in {
 
             set-option -g status-style 'bg=#{@BG_COLOR},fg=#{@FG_COLOR}'
             set -g window-status-current-style 'bg=#545454,fg=#{@FG_COLOR}'
-            set -g window-status-current-format ' #I:#W* '
+            set -g window-status-format ' #I:(#{pane_current_command} #(p="#{pane_current_path}"; [ "$p" = "$HOME" ] && echo "~" || basename "$p")) '
+            set -g window-status-current-format ' #I:(#{pane_current_command} #(p="#{pane_current_path}"; [ "$p" = "$HOME" ] && echo "~" || basename "$p")) '
 
             set -g status-left ' #S '
             set -g status-right ' #h '

@@ -15,7 +15,7 @@ let
     { key = "Key9"; mods = "Command"; tmux = "select-window -t 9"; }
 
     { key = "w";          mods = "Command"; tmux = "kill-window"; }
-    { key = "t";          mods = "Command"; tmux = "new-window"; }
+    { key = "t";          mods = "Command"; tmux = "new-window -c \"#{pane_current_path}\""; }
     { key = "h";          mods = "Command"; tmux = "select-pane -L"; }
     { key = "j";          mods = "Command"; tmux = "select-pane -D"; }
     { key = "k";          mods = "Command"; tmux = "select-pane -U"; }
