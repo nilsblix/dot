@@ -12,7 +12,7 @@
         nd = "nix develop -c " + shell;
         gs = "git status";
         gd = "git diff";
-        sesh = "~/.local/bin/sessionizer.sh";
+        codex = "~/.local/lib/bin/codex";
     };
 
     yaziCdScript = ''
@@ -48,7 +48,6 @@ in {
         dbgate
         postman
 
-        zig_0_14
         nodejs_24
 
         # Overlays
