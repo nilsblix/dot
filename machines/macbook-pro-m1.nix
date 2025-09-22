@@ -17,6 +17,7 @@
         vim
         btop
         neofetch
+        pam-reattach
     ];
 
     networking = {
@@ -25,4 +26,8 @@
         localHostName = "mp14-darwin";
     };
 
+    security.pam.services.sudo_local = {
+        touchIdAuth = true;
+        reattach = true;
+    };
 }

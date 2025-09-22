@@ -52,7 +52,6 @@ in {
         # Overlays
         nvim-pkg
     ] ++ (if isDarwin then [
-        # Nothing at the moment.
     ] else [ # Is on NixOS instead.
         xclip
         oversteer
@@ -62,20 +61,38 @@ in {
 
     home.file = if isDarwin then {
         ".config/karabiner/karabiner.json".source = ./karabiner.json;
-        ".config/ghostty/config".source = ./ghostty.config;
     } else {};
 
     home.sessionVariables = {
         EDITOR = "nvim";
     };
 
-    # programs.tmux = {
-    #     enable = true;
-    #     baseIndex = 1;
-    #     prefix = "C-b";
-    #     disableConfirmationPrompt = true;
-    #     customPaneNavigationAndResize = true;
-    # };
+    programs.tmux = {
+        enable = true;
+        baseIndex = 1;
+        prefix = "C-Space";
+        disableConfirmationPrompt = true;
+        customPaneNavigationAndResize = true;
+        mouse = true;
+        extraConfig = ''
+            unbind r
+            bind r source-file ~/.config/tmux/tmux.conf\; display-message "Config reloaded..."
+
+            set -g status-position top
+
+            bind -n "\uE001" select-window -t 1
+            bind -n "\uE002" select-window -t 2
+            bind -n "\uE003" select-window -t 3
+            bind -n "\uE004" select-window -t 4
+            bind -n "\uE005" select-window -t 5
+            bind -n "\uE006" select-window -t 6
+            bind -n "\uE007" select-window -t 7
+            bind -n "\uE008" select-window -t 8
+            bind -n "\uE009" select-window -t 9
+
+            bind -n "\E0010" kill-window
+        '';
+    };
 
     programs.fzf.enable = true;
 
@@ -89,7 +106,7 @@ in {
             };
             font = {
                 normal = {
-                    family = "Hack Nerd Font Mono";
+                    family = "JetBrainsMono Nerd Font";
                 };
                 size = if isDarwin then 16 else 13;
             };
@@ -102,6 +119,20 @@ in {
             selection = {
                 save_to_clipboard = true;
             };
+            option_as_alt = "OnlyLeft";
+            keyboard.bindings = [
+                # https://docs.rs/winit/latest/winit/keyboard/enum.NamedKey.html
+                { key = "Key1"; mods = "Command"; chars = "\\uE001"; }
+                { key = "Key2"; mods = "Command"; chars = "\\uE002"; }
+                { key = "Key3"; mods = "Command"; chars = "\\uE003"; }
+                { key = "Key4"; mods = "Command"; chars = "\\uE004"; }
+                { key = "Key5"; mods = "Command"; chars = "\\uE005"; }
+                { key = "Key6"; mods = "Command"; chars = "\\uE006"; }
+                { key = "Key7"; mods = "Command"; chars = "\\uE007"; }
+                { key = "Key8"; mods = "Command"; chars = "\\uE008"; }
+                { key = "Key9"; mods = "Command"; chars = "\\uE009"; }
+                { key = "W"; mods = "Command"; chars = "\\uE0010"; }
+            ];
         };
     };
 

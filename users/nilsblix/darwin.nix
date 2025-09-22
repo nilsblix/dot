@@ -21,7 +21,6 @@
             "karabiner-elements"
             "surfshark"
             "google-chrome"
-            { name = "ghostty"; greedy = true; }
         ];
         brews = [
             "codex"
@@ -45,11 +44,12 @@
                 wvous-bl-corner = 10; # put display to sleep
                 wvous-tr-corner = 1; # off
                 wvous-br-corner = 1; # off
-                persistent-apps = [
-                    {
-                        app = "/Applications/Ghostty.app";
-                    }
-                ];
+                # FIX
+                # persistent-apps = [
+                #     {
+                #         app = "/Applications/Ghostty.app";
+                #     }
+                # ];
             };
 
             controlcenter = {
@@ -76,8 +76,6 @@
             };
         };
     };
-
-    security.pam.services.sudo_local.touchIdAuth = true;
 
     power.sleep = {
         computer = 50;
