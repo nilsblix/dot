@@ -21,6 +21,7 @@
             "karabiner-elements"
             "surfshark"
             "google-chrome"
+            "ghostty"
         ];
         onActivation.cleanup = "zap";
     };

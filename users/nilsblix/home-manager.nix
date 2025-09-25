@@ -62,6 +62,27 @@ in {
 
     home.file = if isDarwin then {
         ".config/karabiner/karabiner.json".source = ./karabiner.json;
+        ".config/ghostty/config".text = ''
+            font-feature = -calt, -liga, -dlig
+            shell-integration-features = no-cursor
+            cursor-style = block
+            cursor-style-blink = false
+            cursor-text = #000000
+            cursor-color = #46D9A8
+            mouse-hide-while-typing = true
+            background = #000000
+            foreground = #B4B3B5
+            # font-thicken = true
+            # font-thicken-strength = 255
+            font-size = 16
+            window-padding-balance = false
+            macos-titlebar-proxy-icon = hidden
+
+            keybind = cmd+h=goto_split:left
+            keybind = cmd+j=goto_split:down
+            keybind = cmd+k=goto_split:up
+            keybind = cmd+l=goto_split:right
+        '';
     } else {};
 
     home.sessionVariables = {
@@ -81,6 +102,10 @@ in {
         extraConfig = ''
             unbind r
             bind r source-file ~/.config/tmux/tmux.conf\; display-message "Config reloaded..."
+
+            set -g status-interval 1
+
+            set -g renumber-windows on
 
             set -g status-position top
             set -g status-justify absolute-centre
