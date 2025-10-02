@@ -18,6 +18,7 @@
         btop
         neofetch
         pam-reattach
+        wget
     ];
 
     networking = {
