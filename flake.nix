@@ -22,7 +22,8 @@
 
         monaco-nf.url = "github:thep0y/monaco-nerd-font";
 
-        prompt.url = "github:nilsblix/prompt";
+        rusty-prompt.url = "github:nilsblix/prompt";
+        camel-prompt.url = "github:nilsblix/camel-prompt";
         sf-mono-nf.url = "github:nilsblix/sf-mono-nf";
         neovim-nix.url = "github:nilsblix/nvim.nix";
     };

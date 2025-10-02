@@ -49,6 +49,8 @@ in {
         postman
 
         nodejs_24
+        # I hate this.
+        zig_0_14
 
         # Overlays
         nvim-pkg
@@ -82,6 +84,39 @@ in {
             keybind = cmd+j=goto_split:down
             keybind = cmd+k=goto_split:up
             keybind = cmd+l=goto_split:right
+        '';
+        ".vimrc".text = ''
+            filetype plugin indent on
+            syntax on
+
+            set ai
+            set et
+            set shiftwidth=4
+            set tabstop=4
+            set nowrap
+            set sta
+            set incsearch
+            set hlsearch
+            set scrolloff=10
+            set autoread
+            set noswapfile
+            set mouse=a
+            set clipboard+=unnamed
+            set path+=**
+
+            if executable("rg")
+                set grepprg=rg\ --vimgrep\ --no-heading
+            endif
+            set grepformat=%f:%l:%c%m
+            command! -nargs=+ -complete=file -bar Grep silent grep <args>|cope|redraw!
+
+            let g:mapleader = " "
+            nnoremap <leader>sf :find 
+            nnoremap <leader>n :Ex<CR>
+            nnoremap <leader>p <C-^>
+            nnoremap <C-c> :cnext<CR>
+            nnoremap <C-k> :cprev<CR>
+            nnoremap <silent><Esc> :nohlsearch<CR>
         '';
     } else {};
 
@@ -165,7 +200,9 @@ in {
         shellAliases = shellAliases "zsh";
         initContent = lib.concatStrings [ ''
             function precmd() {
-                prompt="$(PROMPT_SHELL_TYPE=zsh ${inputs.prompt.packages.${pkgs.system}.default}/bin/prompt)"
+                # prompt="$(PROMPT_SHELL_TYPE=zsh ${inputs.rusty-prompt.packages.${pkgs.system}.default}/bin/prompt)"
+                prompt="$(CAMEL_SHELL_TYPE=zsh ${inputs.camel-prompt.packages.${pkgs.system}.default}/bin/main)"
+                # prompt="$(CAMEL_SHELL_TYPE=zsh ~/code/camel-prompt/result/bin/main)"
             }
         '' yaziCdScript ];
     };
@@ -174,7 +211,8 @@ in {
         enable = true;
         shellAliases = shellAliases "bash";
         initExtra = lib.concatStrings [ ''
-            PS1="$(PROMPT_SHELL_TYPE=bash ${inputs.prompt.packages.${pkgs.system}.default}/bin/prompt)"
+            # PS1="$(PROMPT_SHELL_TYPE=bash ${inputs.rusty-prompt.packages.${pkgs.system}.default}/bin/prompt)"
+            PS1="$(CAMEL_SHELL_TYPE=bash ${inputs.camel-prompt.packages.${pkgs.system}.default}/bin/main)"
         '' yaziCdScript ];
     };
 
