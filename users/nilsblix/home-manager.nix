@@ -105,13 +105,14 @@ in {
             set path+=**
 
             if executable("rg")
-                set grepprg=rg\ --vimgrep\ --no-heading
+                set grepprg=rg\ --vimgrep\ --no-heading
             endif
             set grepformat=%f:%l:%c%m
             command! -nargs=+ -complete=file -bar Grep silent grep <args>|cope|redraw!
 
             let g:mapleader = " "
             nnoremap <leader>sf :find 
+            nnoremap <leader>sg :Grep 
             nnoremap <leader>n :Ex<CR>
             nnoremap <leader>p <C-^>
             nnoremap <C-c> :cnext<CR>
