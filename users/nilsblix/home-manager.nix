@@ -55,6 +55,7 @@ in {
         # Overlays
         nvim-pkg
     ] ++ (if isDarwin then [
+        chatgpt
     ] else [ # Is on NixOS instead.
         xclip
         oversteer
