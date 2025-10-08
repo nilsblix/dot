@@ -4,7 +4,6 @@
     isDarwin = pkgs.stdenv.isDarwin;
 
     shellAliases = shell: {
-        vim = "nvim";
         ls = "ls --color=tty";
         l = "ls -al";
         drs = "sudo darwin-rebuild build switch --flake";
@@ -14,6 +13,16 @@
         gd = "git diff";
         codex = "~/.local/lib/bin/codex";
     };
+
+    nvimHabitScript = ''
+        nvim() {
+            if [ -d "$1" ]; then
+                echo "The dot is a trap. Don't go in there, warrior."
+            else
+                command nvim "$@"
+            fi
+        }
+    '';
 
     yaziCdScript = ''
         function y() {
@@ -73,10 +82,10 @@ in {
             cursor-text = #000000
             cursor-color = #46D9A8
             mouse-hide-while-typing = true
-            background = #000000
-            foreground = #B4B3B5
-            # font-thicken = true
-            # font-thicken-strength = 255
+            background = #1E1E1E
+            foreground = #D5D5D5
+            # background = #000000
+            # foreground = #B4B3B5
             font-size = 16
             window-padding-balance = false
             macos-titlebar-proxy-icon = hidden
@@ -206,7 +215,7 @@ in {
                 prompt="$(CAMEL_SHELL_TYPE=zsh ${inputs.camel-prompt.packages.${pkgs.system}.default}/bin/main)"
                 # prompt="$(CAMEL_SHELL_TYPE=zsh ~/code/camel-prompt/result/bin/main)"
             }
-        '' yaziCdScript ];
+        '' yaziCdScript nvimHabitScript ];
     };
 
     programs.bash = {
@@ -215,7 +224,7 @@ in {
         initExtra = lib.concatStrings [ ''
             # PS1="$(PROMPT_SHELL_TYPE=bash ${inputs.rusty-prompt.packages.${pkgs.system}.default}/bin/prompt)"
             PS1="$(CAMEL_SHELL_TYPE=bash ${inputs.camel-prompt.packages.${pkgs.system}.default}/bin/main)"
-        '' yaziCdScript ];
+        '' yaziCdScript nvimHabitScript ];
     };
 
     programs.git = {

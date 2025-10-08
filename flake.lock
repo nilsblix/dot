@@ -36,6 +36,22 @@
         "type": "github"
       }
     },
+    "cobalt-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1759783393,
+        "narHash": "sha256-7q/hnlpkhtFmP0a9mRmVYntsC+yx+hp1phneRjcTfeM=",
+        "owner": "wurli",
+        "repo": "cobalt.nvim",
+        "rev": "ba4205d5bd44c8e0e55ee9958895e360e10b21c8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "wurli",
+        "repo": "cobalt.nvim",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -352,17 +368,18 @@
     },
     "neovim-nix": {
       "inputs": {
+        "cobalt-nvim": "cobalt-nvim",
         "flake-utils": "flake-utils_3",
         "gen-luarc": "gen-luarc",
         "github-theme": "github-theme",
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1758970292,
-        "narHash": "sha256-9wp5hqgz7BsGpv3ds+B9PsjhEYCDF4rYt7cD7WcXNEc=",
+        "lastModified": 1759952802,
+        "narHash": "sha256-qxr6n62RUSYhn58Y107hTyi/eh+qKXwYEjddtv0HqAw=",
         "owner": "nilsblix",
         "repo": "nvim.nix",
-        "rev": "33906d9360c9833a210ec4f8a57051b18625e48f",
+        "rev": "7abd12f45e866f45f2fa22f5298ce62dda0abcee",
         "type": "github"
       },
       "original": {
