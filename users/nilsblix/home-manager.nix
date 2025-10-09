@@ -82,10 +82,8 @@ in {
             cursor-text = #000000
             cursor-color = #46D9A8
             mouse-hide-while-typing = true
-            background = #1E1E1E
-            foreground = #D5D5D5
-            # background = #000000
-            # foreground = #B4B3B5
+            background = #000000
+            foreground = #B4B3B5
             font-size = 16
             window-padding-balance = false
             macos-titlebar-proxy-icon = hidden

@@ -23,8 +23,8 @@
 
     networking = {
         computerName = "Nilss Macbook Pro 14";
-        hostName = "macos"; # this changes the one inside tmux
-        localHostName = "mp14-darwin";
+        hostName = "runner";
+        localHostName = "nilsblix-mbp2021";
     };
 
     security.pam.services.sudo_local = {

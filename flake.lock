@@ -23,11 +23,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1759429825,
-        "narHash": "sha256-bo9+ssAQfFND2knRwRU5hE7OVDLkEoGLYni3F9ELjZI=",
+        "lastModified": 1760040099,
+        "narHash": "sha256-1ONBA9Wo0BgUDEgwmr06uRPK42lCL6O+Nvh5NIPt/bk=",
         "owner": "nilsblix",
         "repo": "camel-prompt",
-        "rev": "8dc92add168af256a84c28d4afc65ab46db3859d",
+        "rev": "e790096d2cd62e0fca796c22dac0e9c2123695dd",
         "type": "github"
       },
       "original": {
@@ -375,16 +375,16 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1759952802,
-        "narHash": "sha256-qxr6n62RUSYhn58Y107hTyi/eh+qKXwYEjddtv0HqAw=",
+        "lastModified": 1760015956,
+        "narHash": "sha256-1oCO+Na8sIjibVLhYlm4+YbhNwgJIlIbhEy/j2jbQug=",
         "owner": "nilsblix",
-        "repo": "nvim.nix",
-        "rev": "7abd12f45e866f45f2fa22f5298ce62dda0abcee",
+        "repo": "neovim.nix",
+        "rev": "07608313bf2528daaa29562660eb516de4b2bca0",
         "type": "github"
       },
       "original": {
         "owner": "nilsblix",
-        "repo": "nvim.nix",
+        "repo": "neovim.nix",
         "type": "github"
       }
     },
