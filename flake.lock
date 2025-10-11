@@ -17,25 +17,6 @@
         "type": "github"
       }
     },
-    "camel-prompt": {
-      "inputs": {
-        "flake-utils": "flake-utils",
-        "nixpkgs": "nixpkgs"
-      },
-      "locked": {
-        "lastModified": 1760040099,
-        "narHash": "sha256-1ONBA9Wo0BgUDEgwmr06uRPK42lCL6O+Nvh5NIPt/bk=",
-        "owner": "nilsblix",
-        "repo": "camel-prompt",
-        "rev": "e790096d2cd62e0fca796c22dac0e9c2123695dd",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nilsblix",
-        "repo": "camel-prompt",
-        "type": "github"
-      }
-    },
     "cobalt-nvim": {
       "flake": false,
       "locked": {
@@ -261,6 +242,25 @@
         "type": "github"
       }
     },
+    "glowstick": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1760173378,
+        "narHash": "sha256-IRUvcsfNYzf6gDLFx0iEH2t7gH+rb6iPPXU4gs6wHc8=",
+        "owner": "nilsblix",
+        "repo": "glowstick",
+        "rev": "01e02408dfde2fc13f75b77afea2af6aba52681a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nilsblix",
+        "repo": "glowstick",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -375,11 +375,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1760015956,
-        "narHash": "sha256-1oCO+Na8sIjibVLhYlm4+YbhNwgJIlIbhEy/j2jbQug=",
+        "lastModified": 1760173871,
+        "narHash": "sha256-jVsO3om2K4x5bRP2wV8xdpvaDcoHiEdfKqwtcja4iPw=",
         "owner": "nilsblix",
         "repo": "neovim.nix",
-        "rev": "07608313bf2528daaa29562660eb516de4b2bca0",
+        "rev": "3bfa3d6d5bc2f39ad5a91049be99a8c0676d70ac",
         "type": "github"
       },
       "original": {
@@ -584,7 +584,7 @@
     },
     "root": {
       "inputs": {
-        "camel-prompt": "camel-prompt",
+        "glowstick": "glowstick",
         "home-manager": "home-manager",
         "homebrew-cask": "homebrew-cask",
         "homebrew-core": "homebrew-core",

@@ -76,14 +76,14 @@ in {
         ".config/karabiner/karabiner.json".source = ./karabiner.json;
         ".config/ghostty/config".text = ''
             font-feature = -calt, -liga, -dlig
+            font-family = FiraCode Nerd Font
             shell-integration-features = no-cursor
+            cursor-color = #BBB
             cursor-style = block
             cursor-style-blink = false
-            cursor-text = #000000
-            cursor-color = #46D9A8
             mouse-hide-while-typing = true
             background = #000000
-            foreground = #B4B3B5
+            foreground = #A4A4A4
             font-size = 16
             window-padding-balance = false
             macos-titlebar-proxy-icon = hidden
@@ -209,9 +209,7 @@ in {
         shellAliases = shellAliases "zsh";
         initContent = lib.concatStrings [ ''
             function precmd() {
-                # prompt="$(PROMPT_SHELL_TYPE=zsh ${inputs.rusty-prompt.packages.${pkgs.system}.default}/bin/prompt)"
-                prompt="$(CAMEL_SHELL_TYPE=zsh ${inputs.camel-prompt.packages.${pkgs.system}.default}/bin/main)"
-                # prompt="$(CAMEL_SHELL_TYPE=zsh ~/code/camel-prompt/result/bin/main)"
+                prompt="$(GLOWSTICK_SHELL_TYPE=zsh ${inputs.glowstick.packages.${pkgs.system}.default}/bin/main)"
             }
         '' yaziCdScript nvimHabitScript ];
     };
@@ -220,8 +218,7 @@ in {
         enable = true;
         shellAliases = shellAliases "bash";
         initExtra = lib.concatStrings [ ''
-            # PS1="$(PROMPT_SHELL_TYPE=bash ${inputs.rusty-prompt.packages.${pkgs.system}.default}/bin/prompt)"
-            PS1="$(CAMEL_SHELL_TYPE=bash ${inputs.camel-prompt.packages.${pkgs.system}.default}/bin/main)"
+            PS1="$(GLOWSTICK_SHELL_TYPE=bash ${inputs.glowstick.packages.${pkgs.system}.default}/bin/main)"
         '' yaziCdScript nvimHabitScript ];
     };
 
