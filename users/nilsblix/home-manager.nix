@@ -36,8 +36,6 @@
 
     secretsFile = "${inputs.secrets}/secrets.nix";
     secrets = if builtins.pathExists secretsFile then import secretsFile else {};
-
-    pua = import ./pua-bindings.nix { inherit lib; };
 in {
     home.username = "nilsblix";
     home.homeDirectory = if isDarwin then "/Users/nilsblix" else "/home/nilsblix";
@@ -76,14 +74,15 @@ in {
         ".config/karabiner/karabiner.json".source = ./karabiner.json;
         ".config/ghostty/config".text = ''
             font-feature = -calt, -liga, -dlig
-            font-family = FiraCode Nerd Font
+            font-variation = wdth=90
+            font-family = Berkeley Mono Variable
             shell-integration-features = no-cursor
             cursor-color = #BBB
             cursor-style = block
             cursor-style-blink = false
             mouse-hide-while-typing = true
             background = #000000
-            foreground = #A4A4A4
+            foreground = #D0D0D0
             font-size = 16
             window-padding-balance = false
             macos-titlebar-proxy-icon = hidden
@@ -170,7 +169,7 @@ in {
 
             set -g status-left ' #S '
             set -g status-right ' #h '
-        '' + pua.tmuxExtra;
+        '';
     };
 
     programs.alacritty = {
@@ -194,7 +193,6 @@ in {
             selection = {
                 save_to_clipboard = true;
             };
-            keyboard.bindings = pua.alacrittyBindings;
         };
     };
 
