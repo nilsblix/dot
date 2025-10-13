@@ -14,16 +14,6 @@
         codex = "~/.local/lib/bin/codex";
     };
 
-    nvimHabitScript = ''
-        nvim() {
-            if [ -d "$1" ]; then
-                echo "The dot is a trap. Don't go in there, warrior."
-            else
-                command nvim "$@"
-            fi
-        }
-    '';
-
     yaziCdScript = ''
         function y() {
             local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
@@ -74,7 +64,7 @@ in {
         ".config/karabiner/karabiner.json".source = ./karabiner.json;
         ".config/ghostty/config".text = ''
             font-feature = -calt, -liga, -dlig
-            font-variation = wdth=90
+            font-variation = wdth=80
             font-family = Berkeley Mono Variable
             shell-integration-features = no-cursor
             cursor-color = #BBB
@@ -92,9 +82,21 @@ in {
             keybind = cmd+k=goto_split:up
             keybind = cmd+l=goto_split:right
         '';
-        ".vimrc".text = ''
+        ".vim/colors/nightshade.vim".source = ./nightshade.vim;
+    } else {};
+
+    programs.vim = {
+        enable = true;
+        plugins = with pkgs.vimPlugins; [
+            vim-surround
+            vim-commentary
+            vim-trailing-whitespace
+        ];
+        extraConfig = ''
             filetype plugin indent on
             syntax on
+
+            colorscheme nightshade
 
             set ai
             set et
@@ -126,7 +128,7 @@ in {
             nnoremap <C-k> :cprev<CR>
             nnoremap <silent><Esc> :nohlsearch<CR>
         '';
-    } else {};
+    };
 
     home.sessionVariables = {
         EDITOR = "nvim";
@@ -206,18 +208,16 @@ in {
         enable = true;
         shellAliases = shellAliases "zsh";
         initContent = lib.concatStrings [ ''
-            function precmd() {
-                prompt="$(GLOWSTICK_SHELL_TYPE=zsh ${inputs.glowstick.packages.${pkgs.system}.default}/bin/main)"
-            }
-        '' yaziCdScript nvimHabitScript ];
+            eval "$(${inputs.glowstick.packages.${pkgs.system}.default}/bin/main init zsh)"
+        '' yaziCdScript ];
     };
 
     programs.bash = {
         enable = true;
         shellAliases = shellAliases "bash";
         initExtra = lib.concatStrings [ ''
-            PS1="$(GLOWSTICK_SHELL_TYPE=bash ${inputs.glowstick.packages.${pkgs.system}.default}/bin/main)"
-        '' yaziCdScript nvimHabitScript ];
+            eval "$(${inputs.glowstick.packages.${pkgs.system}.default}/bin/main init bash)"
+        '' yaziCdScript ];
     };
 
     programs.git = {
