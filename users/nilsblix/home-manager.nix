@@ -45,12 +45,12 @@ in {
         dbgate
         postman
 
-        nodejs_24
         # I hate this.
+        nodejs_24
         zig_0_14
 
         # Overlays
-        nvim-pkg
+        neovim-flake
     ] ++ (if isDarwin then [
         chatgpt
     ] else [ # Is on NixOS instead.

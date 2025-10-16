@@ -16,6 +16,7 @@
         vim
         btop
         neofetch
+        nixd
     ];
 
     programs.zsh.enable = true;

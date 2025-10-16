@@ -16,9 +16,9 @@
         zsh
         vim
         btop
-        neofetch
         pam-reattach
         wget
+        nixd
     ];
 
     networking = {

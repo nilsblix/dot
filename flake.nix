@@ -25,12 +25,12 @@
         rusty-prompt.url = "github:nilsblix/prompt";
         glowstick.url = "github:nilsblix/glowstick";
         sf-mono-nf.url = "github:nilsblix/sf-mono-nf";
-        neovim-nix.url = "github:nilsblix/neovim.nix";
+        neovim-flake.url = "github:nilsblix/neovim-flake";
     };
 
     outputs = { nixpkgs, ... }@inputs: let
         overlays = [
-            inputs.neovim-nix.overlays.default
+            inputs.neovim-flake.overlays.default
         ];
 
         mkSystem = import ./lib/mksystem.nix {
