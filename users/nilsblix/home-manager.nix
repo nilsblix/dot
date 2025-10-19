@@ -71,11 +71,8 @@ in {
             cursor-style = block
             cursor-style-blink = false
             mouse-hide-while-typing = true
-            background = #000000
-            foreground = #D0D0D0
             font-size = 16
             window-padding-balance = false
-            macos-titlebar-proxy-icon = hidden
 
             keybind = cmd+h=goto_split:left
             keybind = cmd+j=goto_split:down
@@ -208,7 +205,7 @@ in {
         enable = true;
         shellAliases = shellAliases "zsh";
         initContent = lib.concatStrings [ ''
-            eval "$(${inputs.glowstick.packages.${pkgs.system}.default}/bin/main init zsh)"
+            eval "$(${inputs.glowstick.packages.${pkgs.system}.default}/bin/main init zsh macos)"
         '' yaziCdScript ];
     };
 
@@ -216,7 +213,7 @@ in {
         enable = true;
         shellAliases = shellAliases "bash";
         initExtra = lib.concatStrings [ ''
-            eval "$(${inputs.glowstick.packages.${pkgs.system}.default}/bin/main init bash)"
+            eval "$(${inputs.glowstick.packages.${pkgs.system}.default}/bin/main init bash macos)"
         '' yaziCdScript ];
     };
 
