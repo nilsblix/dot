@@ -1,10 +1,19 @@
-# nixos-config.public
+# dot
 
-Personal Nix flake configuration.
+Public Nix flake configuration for macOS (nix-darwin) and NixOS, including Home Manager and declarative Homebrew.
+
+## Flake Outputs
+
+- `.#macos` (aarch64-darwin) → `machines/macbook-pro-m1.nix` + `users/nilsblix/darwin.nix`
+- `.#nixos` (x86_64-linux) → `machines/b550e.nix` + `users/nilsblix/nixos.nix`
 
 ## Installation
 
-### On macOS
+Notes
+- This flake depends on a private repo `nilsblix/dot-private`. Authenticate GitHub before building.
+- Nix 2.18+ is recommended. Flakes are enabled in the configs.
+
+### macOS (nix-darwin)
 
 1. Install Nix:
 
@@ -12,58 +21,55 @@ Personal Nix flake configuration.
     sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install)
     ```
 
-2. Authorize GitHub to access this (private) repo:
+2. Authenticate GitHub for the private dependency:
 
     ```bash
     nix-shell -p git gh
-    gh auth status
-    gh auth login
+    gh auth status || gh auth login
     ```
 
 3. Clone this repository:
 
     ```bash
-    git clone https://github.com/nilsblix/nixos-config.public.git
-    cd nixos-config.public
+    git clone https://github.com/nilsblix/dot.git
+    cd dot
     ```
 
-4. Activate the configuration:
+4. Activate the configuration (bootstrap nix-darwin):
 
     ```bash
-    nix run github:LnL7/nix-darwin --extra-experimental-features "nix-command flakes" -- switch --flake .#<flake_name>
+    nix run nix-darwin --extra-experimental-features "nix-command flakes" -- switch --flake .#macos
     ```
 
-    Replace `<flake_name>` with your hostname or desired flake output.
-
-5. (Optional) Install Rosetta for Homebrew-dependent packages:
+5. (Apple Silicon) Optional: install Rosetta for some Homebrew packages:
 
     ```bash
     softwareupdate --install-rosetta
     ```
 
----
+### NixOS / Linux
 
-### On NixOS / Linux
-
-1. Authorize GitHub to access this (private) repo:
+1. Authenticate GitHub for the private dependency:
 
     ```bash
     nix-shell -p git gh
-    gh auth status
-    gh auth login
+    gh auth status || gh auth login
     ```
 
 2. Clone this repository:
 
     ```bash
-    git clone https://github.com/nilsblix/nixos-config.public.git
-    cd nixos-config.public
+    git clone https://github.com/nilsblix/dot.git
+    cd dot
     ```
 
 3. Activate the configuration:
 
     ```bash
-    sudo nixos-rebuild switch --extra-experimental-features "nix-command flakes" --flake .#<flake_name>
+    sudo nixos-rebuild switch --extra-experimental-features "nix-command flakes" --flake .#nixos
     ```
 
-    Replace `<flake_name>` with your hostname or desired flake output.
+## Notes
+
+- Darwin config enables declarative Homebrew via `nix-homebrew`; Homebrew is set up automatically and casks are managed in `users/nilsblix/darwin.nix`.
+- Channels are pinned to the 25.05 releases in `flake.nix`.

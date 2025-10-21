@@ -24,7 +24,7 @@
         }
     '';
 
-    secretsFile = "${inputs.secrets}/secrets.nix";
+    secretsFile = "${inputs.dot-private}/secrets.nix";
     secrets = if builtins.pathExists secretsFile then import secretsFile else {};
 in {
     home.username = "nilsblix";

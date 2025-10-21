@@ -1,4 +1,6 @@
 {
+    description = "Public system configuration via nix";
+
     inputs = {
         nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
         nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -17,8 +19,8 @@
         homebrew-cask.url = "github:homebrew/homebrew-cask";
         homebrew-cask.flake = false;
 
-        secrets.url = "git+https://github.com/nilsblix/nixos-config.private";
-        secrets.flake = false;
+        dot-private.url = "git+https://github.com/nilsblix/dot-private";
+        dot-private.flake = false;
 
         monaco-nf.url = "github:thep0y/monaco-nerd-font";
 

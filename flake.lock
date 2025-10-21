@@ -17,6 +17,22 @@
         "type": "github"
       }
     },
+    "dot-private": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1757860053,
+        "narHash": "sha256-Nz2AwaiaFa+5SX0qgLmiBopB1X9UPYg+GyqkGgyndK4=",
+        "ref": "refs/heads/main",
+        "rev": "e28b84bbb186e411e867683e4a7eae7d40e41c0d",
+        "revCount": 5,
+        "type": "git",
+        "url": "https://github.com/nilsblix/dot-private"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://github.com/nilsblix/dot-private"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -575,6 +591,7 @@
     },
     "root": {
       "inputs": {
+        "dot-private": "dot-private",
         "glowstick": "glowstick",
         "home-manager": "home-manager",
         "homebrew-cask": "homebrew-cask",
@@ -586,7 +603,6 @@
         "nixpkgs": "nixpkgs_4",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "rusty-prompt": "rusty-prompt",
-        "secrets": "secrets",
         "sf-mono-nf": "sf-mono-nf"
       }
     },
@@ -607,22 +623,6 @@
         "owner": "nilsblix",
         "repo": "prompt",
         "type": "github"
-      }
-    },
-    "secrets": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1757860053,
-        "narHash": "sha256-Nz2AwaiaFa+5SX0qgLmiBopB1X9UPYg+GyqkGgyndK4=",
-        "ref": "refs/heads/main",
-        "rev": "e28b84bbb186e411e867683e4a7eae7d40e41c0d",
-        "revCount": 5,
-        "type": "git",
-        "url": "https://github.com/nilsblix/nixos-config.private"
-      },
-      "original": {
-        "type": "git",
-        "url": "https://github.com/nilsblix/nixos-config.private"
       }
     },
     "sf-mono-nf": {
