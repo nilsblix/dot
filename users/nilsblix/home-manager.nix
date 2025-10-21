@@ -205,7 +205,7 @@ in {
         enable = true;
         shellAliases = shellAliases "zsh";
         initContent = lib.concatStrings [ ''
-            eval "$(${inputs.glowstick.packages.${pkgs.system}.default}/bin/main init zsh macos)"
+            eval "$(${inputs.glowstick.packages.${pkgs.system}.default}/bin/main init zsh current)"
         '' yaziCdScript ];
     };
 
@@ -213,7 +213,7 @@ in {
         enable = true;
         shellAliases = shellAliases "bash";
         initExtra = lib.concatStrings [ ''
-            eval "$(${inputs.glowstick.packages.${pkgs.system}.default}/bin/main init bash macos)"
+            eval "$(${inputs.glowstick.packages.${pkgs.system}.default}/bin/main init bash current)"
         '' yaziCdScript ];
     };
 

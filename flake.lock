@@ -230,11 +230,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1760824465,
-        "narHash": "sha256-y6D+k4GBIArLXrkbn/zFuBl7FTb66uaMHtT4atLWtKw=",
+        "lastModified": 1761083971,
+        "narHash": "sha256-c2bEEt3TioFrObMjc/IYlcxBfnZ3TuErn/RSHAIQvlY=",
         "owner": "nilsblix",
         "repo": "glowstick",
-        "rev": "bb4b3cd4ff39ced782ca9722ff2ddee96b47c793",
+        "rev": "d1785e03ef999a189fb373da837620ddd165bf56",
         "type": "github"
       },
       "original": {
