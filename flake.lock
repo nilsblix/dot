@@ -230,16 +230,16 @@
     "helix-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1733127512,
-        "narHash": "sha256-XU5piaRs9hz+6ArcgzCw9h84r+fBBRd/IsoqDR9vuCs=",
-        "owner": "oneslash",
-        "repo": "helix-nvim",
-        "rev": "ad5271f5a8e9c66e85cbeceba0404c5e267c3dfd",
+        "lastModified": 1761071675,
+        "narHash": "sha256-D+5z862J8r7ALPiW9NfOOFo/hzsd8uDpz6bpqW0kzss=",
+        "owner": "nilsblix",
+        "repo": "helix.nvim",
+        "rev": "af9869e26c5fefb68227bd674f1213f6c76df5d7",
         "type": "github"
       },
       "original": {
-        "owner": "oneslash",
-        "repo": "helix-nvim",
+        "owner": "nilsblix",
+        "repo": "helix.nvim",
         "type": "github"
       }
     },
@@ -367,11 +367,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1760903695,
-        "narHash": "sha256-1A6UGVqix2EDlq8iTuArwe4JNJDAfftaqvINWFwCl40=",
+        "lastModified": 1761071839,
+        "narHash": "sha256-LtaB2I6qc8uF7zMpKTGrsqk1ziZi15wprOXYrjOmiqY=",
         "owner": "nilsblix",
         "repo": "neovim-flake",
-        "rev": "4883021469b2c222f83ff9aaa0c2dbf25592e6c3",
+        "rev": "aaf01c569929afa5a816e43df2dd15075b5efd6d",
         "type": "github"
       },
       "original": {
