@@ -64,8 +64,9 @@ in {
         ".config/karabiner/karabiner.json".source = ./karabiner.json;
         ".config/ghostty/config".text = ''
             font-feature = -calt, -liga, -dlig
-            font-variation = wdth=80
-            font-family = Berkeley Mono Variable
+            # font-variation = wdth=80
+            # font-family = Berkeley Mono Variable
+            font-family = Iosevka Nerd Font
             shell-integration-features = no-cursor
             cursor-color = #BBB
             cursor-style = block
