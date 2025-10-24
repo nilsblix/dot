@@ -60,8 +60,7 @@ in {
         heroic
     ]);
 
-    home.file = if isDarwin then {
-        ".config/karabiner/karabiner.json".source = ./karabiner.json;
+    home.file = {
         ".config/ghostty/config".text = ''
             font-feature = -calt, -liga, -dlig
             # font-variation = wdth=80
@@ -81,7 +80,9 @@ in {
             keybind = cmd+l=goto_split:right
         '';
         ".vim/colors/nightshade.vim".source = ./nightshade.vim;
-    } else {};
+    } // (if isDarwin then {
+        ".config/karabiner/karabiner.json".source = ./karabiner.json;
+    } else {});
 
     programs.vim = {
         enable = true;
