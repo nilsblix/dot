@@ -65,8 +65,11 @@ in {
             font-feature = -calt, -liga, -dlig
             # font-variation = wdth=80
             # font-family = Berkeley Mono Variable
-            font-family = Iosevka Nerd Font
+            # font-family = Iosevka Nerd Font
+            # font-family = Lilex Nerd Font
             shell-integration-features = no-cursor
+            background = #050607
+            foreground = #B4B3B5
             cursor-color = #BBB
             cursor-style = block
             cursor-style-blink = false
@@ -90,6 +93,7 @@ in {
             vim-surround
             vim-commentary
             vim-trailing-whitespace
+            vim-localvimrc
         ];
         extraConfig = ''
             filetype plugin indent on
@@ -112,6 +116,8 @@ in {
             set clipboard+=unnamed
             set path+=**
 
+            set exrc
+
             if executable("rg")
                 set grepprg=rg\ --vimgrep\ --no-heading
             endif
@@ -125,7 +131,6 @@ in {
             nnoremap <leader>p <C-^>
             nnoremap <C-c> :cnext<CR>
             nnoremap <C-k> :cprev<CR>
-            nnoremap <silent><Esc> :nohlsearch<CR>
         '';
     };
 
@@ -133,7 +138,7 @@ in {
         EDITOR = "nvim";
     };
 
-    programs.fzf.enable = true;
+    # programs.fzf.enable = true;
     programs.yazi.enable = true;
 
     programs.tmux = {
@@ -161,15 +166,16 @@ in {
             set -g pane-active-border-style "fg=#268bd3"
 
             set -g @FG_COLOR "#E6E6E7"
-            set -g @BG_COLOR "#2F2F2F"
+            set -g @BG_COLOR "default"
 
             set-option -g status-style 'bg=#{@BG_COLOR},fg=#{@FG_COLOR}'
+            set -g window-status-format ' #I:#{pane_current_command} #(p="#{pane_current_path}"; [ "$p" = "$HOME" ] && echo "~" || basename "$p") '
+            set -g window-status-style 'bg=#303030'
+            set -g window-status-current-format ' #I:#{pane_current_command} #(p="#{pane_current_path}"; [ "$p" = "$HOME" ] && echo "~" || basename "$p") '
             set -g window-status-current-style 'bg=#545454,fg=#{@FG_COLOR}'
-            set -g window-status-format ' #I:(#{pane_current_command} #(p="#{pane_current_path}"; [ "$p" = "$HOME" ] && echo "~" || basename "$p")) '
-            set -g window-status-current-format ' #I:(#{pane_current_command} #(p="#{pane_current_path}"; [ "$p" = "$HOME" ] && echo "~" || basename "$p")) '
 
-            set -g status-left ' #S '
-            set -g status-right ' #h '
+            set -g status-left ""
+            set -g status-right ""
         '';
     };
 
