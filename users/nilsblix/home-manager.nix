@@ -152,6 +152,11 @@ in {
             unbind r
             bind r source-file ~/.config/tmux/tmux.conf\; display-message "Config reloaded..."
 
+            bind h select-pane -L
+            bind j select-pane -D
+            bind k select-pane -U
+            bind l select-pane -R
+
             set -g status-interval 1
 
             set -g renumber-windows on
