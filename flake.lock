@@ -339,6 +339,22 @@
         "type": "github"
       }
     },
+    "lemons-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1762415787,
+        "narHash": "sha256-dsWyEEEMm3qyaX5TGmKSmCreZIxTkhKnBl5sObJOb8I=",
+        "owner": "Kaikacy",
+        "repo": "Lemons.nvim",
+        "rev": "56660c27777862df5243f14b8ad8dfedeafedacb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Kaikacy",
+        "repo": "Lemons.nvim",
+        "type": "github"
+      }
+    },
     "monaco": {
       "flake": false,
       "locked": {
@@ -379,15 +395,16 @@
       "inputs": {
         "flake-utils": "flake-utils_3",
         "helix-nvim": "helix-nvim",
+        "lemons-nvim": "lemons-nvim",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1762007981,
-        "narHash": "sha256-cu7WWfr7tsm1A3/yfPxH8uuet24A3nsAdXy4+963l6w=",
+        "lastModified": 1762606419,
+        "narHash": "sha256-oVOGyFO7otSuVIBxOv3jcyGExJ2zePxWJm1b6ULgE9U=",
         "owner": "nilsblix",
         "repo": "neovim-flake",
-        "rev": "6db26a0772b9bba913520ad4161962b6590f1e52",
+        "rev": "6f691b2c83bbf031346db81630991c1090f6f1a9",
         "type": "github"
       },
       "original": {

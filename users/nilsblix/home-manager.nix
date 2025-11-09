@@ -34,30 +34,32 @@ in {
 
     programs.home-manager.enable = true;
 
-    home.packages = with pkgs; [ # alphabetical order
-        git
-        gh
-        ripgrep
+    home.packages = [ # alphabetical order
+        pkgs.git
+        pkgs.gh
+        pkgs.ripgrep
+        pkgs.tree
 
-        spotify
-        firefox
-        discord
-        dbgate
-        postman
+        pkgs.spotify
+        pkgs.firefox
+        pkgs.discord
+        pkgs.dbgate
+        pkgs.postman
 
         # I hate this.
-        nodejs_24
-        zig_0_14
+        pkgs.nodejs_24
+        # Required to install zig_0_15.
+        inputs.nixpkgs-unstable.legacyPackages.${pkgs.system}.zig
 
         # Overlays
-        neovim-flake
+        pkgs.neovim-flake
     ] ++ (if isDarwin then [
-        chatgpt
+        pkgs.chatgpt
     ] else [ # Is on NixOS instead.
-        xclip
-        oversteer
-        linuxHeaders
-        heroic
+        pkgs.xclip
+        pkgs.oversteer
+        pkgs.linuxHeaders
+        pkgs.heroic
     ]);
 
     home.file = {
@@ -66,7 +68,7 @@ in {
             # font-variation = wdth=80
             # font-family = Berkeley Mono Variable
             # font-family = Iosevka Nerd Font
-            # font-family = Lilex Nerd Font
+            font-family = Lilex Nerd Font
             shell-integration-features = no-cursor
             background = #050607
             foreground = #B4B3B5
