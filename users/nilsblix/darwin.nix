@@ -22,6 +22,8 @@
             "surfshark"
             "google-chrome"
             "ghostty"
+            "spotify"
+            "mattermost"
         ];
         onActivation.cleanup = "zap";
     };

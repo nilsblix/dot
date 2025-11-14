@@ -12,6 +12,7 @@
         gs = "git status";
         gd = "git diff";
         codex = "~/.local/lib/bin/codex";
+        c = "cd $(fd | fzf)";
     };
 
     yaziCdScript = ''
@@ -40,7 +41,8 @@ in {
         pkgs.ripgrep
         pkgs.tree
 
-        pkgs.spotify
+        pkgs.fd
+
         pkgs.firefox
         pkgs.discord
         pkgs.dbgate
@@ -56,19 +58,18 @@ in {
     ] ++ (if isDarwin then [
         pkgs.chatgpt
     ] else [ # Is on NixOS instead.
+        pkgs.spotify
         pkgs.xclip
         pkgs.oversteer
         pkgs.linuxHeaders
         pkgs.heroic
     ]);
 
+    programs.fzf.enable = true;
+
     home.file = {
         ".config/ghostty/config".text = ''
             font-feature = -calt, -liga, -dlig
-            # font-variation = wdth=80
-            # font-family = Berkeley Mono Variable
-            # font-family = Iosevka Nerd Font
-            font-family = Lilex Nerd Font
             shell-integration-features = no-cursor
             background = #050607
             foreground = #B4B3B5
@@ -244,7 +245,7 @@ in {
 
         includes = [
             {
-                condition = "gitdir:~/code/kth/";
+                condition = "gitdir:~/Code/kth/";
                 contents = {
                     user = secrets.kth;
                 };
