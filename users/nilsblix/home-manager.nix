@@ -56,54 +56,46 @@ in {
         # Overlays
         pkgs.neovim-flake
     ] ++ (if isDarwin then [
-        pkgs.chatgpt
-    ] else [ # Is on NixOS instead.
-        pkgs.spotify
-        pkgs.xclip
-        pkgs.oversteer
-        pkgs.linuxHeaders
-        pkgs.heroic
-    ]);
+            pkgs.chatgpt
+        ] else [ # Is on NixOS instead.
+                pkgs.spotify
+                pkgs.xclip
+                pkgs.oversteer
+                pkgs.linuxHeaders
+                pkgs.heroic
+            ]);
 
     programs.fzf.enable = true;
 
     home.file = {
         ".config/ghostty/config".text = ''
             font-feature = -calt, -liga, -dlig
-            shell-integration-features = no-cursor
-            background = #050607
+
+            background = #000000
             foreground = #B4B3B5
-            cursor-color = #BBB
-            cursor-style = block
-            cursor-style-blink = false
-            mouse-hide-while-typing = true
             font-size = 16
+
+            shell-integration-features = no-cursor
+            cursor-style = block
+            cursor-opacity = 0.75
+            cursor-style-blink = false
+            cursor-click-to-move = true
+            mouse-hide-while-typing = true
             window-padding-balance = false
 
             keybind = cmd+h=goto_split:left
             keybind = cmd+j=goto_split:down
             keybind = cmd+k=goto_split:up
             keybind = cmd+l=goto_split:right
+
+            keybind = shift+enter=text:\n
+
+            macos-titlebar-style = native
+            macos-titlebar-proxy-icon = hidden
         '';
-        ".vim/colors/nightshade.vim".source = ./nightshade.vim;
-    } // (if isDarwin then {
-        ".config/karabiner/karabiner.json".source = ./karabiner.json;
-    } else {});
-
-    programs.vim = {
-        enable = true;
-        plugins = with pkgs.vimPlugins; [
-            vim-surround
-            vim-commentary
-            vim-trailing-whitespace
-            vim-localvimrc
-        ];
-        extraConfig = ''
-            filetype plugin indent on
+        ".vim/colors/hybrid.vim".source = ./hybrid.vim;
+        ".vimrc".text = ''
             syntax on
-
-            colorscheme nightshade
-
             set ai
             set et
             set shiftwidth=4
@@ -118,8 +110,12 @@ in {
             set mouse=a
             set clipboard+=unnamed
             set path+=**
+            set laststatus=2
 
-            set exrc
+            set background=dark
+            colorscheme hybrid
+
+            highlight Comment ctermfg=green
 
             if executable("rg")
                 set grepprg=rg\ --vimgrep\ --no-heading
@@ -135,7 +131,9 @@ in {
             nnoremap <C-c> :cnext<CR>
             nnoremap <C-k> :cprev<CR>
         '';
-    };
+    } // (if isDarwin then {
+        ".config/karabiner/karabiner.json".source = ./karabiner.json;
+    } else {});
 
     home.sessionVariables = {
         EDITOR = "nvim";
@@ -195,7 +193,7 @@ in {
             };
             font = {
                 normal = {
-                    family = "JetBrainsMono Nerd Font";
+                    family = "Monaco";
                 };
                 size = if isDarwin then 16 else 13;
             };
@@ -221,7 +219,7 @@ in {
         enable = true;
         shellAliases = shellAliases "zsh";
         initContent = lib.concatStrings [ ''
-            eval "$(${inputs.glowstick.packages.${pkgs.system}.default}/bin/main init zsh robby)"
+            eval "$(${inputs.glowstick.packages.${pkgs.system}.default}/bin/main zsh ham)"
         '' yaziCdScript ];
     };
 
@@ -229,7 +227,7 @@ in {
         enable = true;
         shellAliases = shellAliases "bash";
         initExtra = lib.concatStrings [ ''
-            eval "$(${inputs.glowstick.packages.${pkgs.system}.default}/bin/main init bash robby)"
+            eval "$(${inputs.glowstick.packages.${pkgs.system}.default}/bin/main bash ham)"
         '' yaziCdScript ];
     };
 
