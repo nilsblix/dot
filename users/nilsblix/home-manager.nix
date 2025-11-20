@@ -42,6 +42,7 @@ in {
         pkgs.tree
 
         pkgs.fd
+        pkgs.dust
 
         pkgs.firefox
         pkgs.discord
