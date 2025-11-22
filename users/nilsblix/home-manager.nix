@@ -72,7 +72,7 @@ in {
         ".config/ghostty/config".text = ''
             font-feature = -calt, -liga, -dlig
 
-            background = #000000
+            background = #1F2224
             foreground = #B4B3B5
             font-size = 16
 
@@ -220,7 +220,7 @@ in {
         enable = true;
         shellAliases = shellAliases "zsh";
         initContent = lib.concatStrings [ ''
-            eval "$(${inputs.glowstick.packages.${pkgs.system}.default}/bin/main zsh ham)"
+            eval "$(${inputs.glowstick.packages.${pkgs.system}.default}/bin/main zsh vwm)"
         '' yaziCdScript ];
     };
 
@@ -228,7 +228,7 @@ in {
         enable = true;
         shellAliases = shellAliases "bash";
         initExtra = lib.concatStrings [ ''
-            eval "$(${inputs.glowstick.packages.${pkgs.system}.default}/bin/main bash ham)"
+            eval "$(${inputs.glowstick.packages.${pkgs.system}.default}/bin/main bash vwm)"
         '' yaziCdScript ];
     };
 
