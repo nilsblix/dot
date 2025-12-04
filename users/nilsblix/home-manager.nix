@@ -72,12 +72,13 @@ in {
         ".config/ghostty/config".text = ''
             font-feature = -calt, -liga, -dlig
 
-            background = #1F2224
+            background = #030303
             foreground = #B4B3B5
             font-size = 16
 
             shell-integration-features = no-cursor
             cursor-style = block
+            cursor-color = #FFB96E
             cursor-opacity = 0.75
             cursor-style-blink = false
             cursor-click-to-move = true

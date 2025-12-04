@@ -24,6 +24,7 @@
             "ghostty"
             "spotify"
             "mattermost"
+            "microsoft-powerpoint"
         ];
         onActivation.cleanup = "zap";
     };
