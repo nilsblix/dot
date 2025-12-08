@@ -134,8 +134,8 @@ in {
             nnoremap <C-k> :cprev<CR>
         '';
     } // (if isDarwin then {
-        ".config/karabiner/karabiner.json".source = ./karabiner.json;
-    } else {});
+            ".config/karabiner/karabiner.json".source = ./karabiner.json;
+        } else {});
 
     home.sessionVariables = {
         EDITOR = "nvim";

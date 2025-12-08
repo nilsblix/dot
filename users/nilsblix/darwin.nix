@@ -26,7 +26,12 @@
             "mattermost"
             "microsoft-powerpoint"
         ];
-        onActivation.cleanup = "zap";
+        onActivation = {
+            cleanup = "zap";
+            extraFlags = [
+                "--verbose"
+            ];
+        };
     };
 
     system = {
@@ -45,35 +50,37 @@
                 wvous-bl-corner = 10; # put display to sleep
                 wvous-tr-corner = 1; # off
                 wvous-br-corner = 1; # off
-                # FIX
-                # persistent-apps = [
-                #     {
-                #         app = "/Applications/Ghostty.app";
-                #     }
-                # ];
+                persistent-apps = [
+                    {
+                        app = "/Applications/Ghostty.app";
+                    }
+                ];
             };
-
             controlcenter = {
                 Sound = true;
                 Bluetooth = true;
                 NowPlaying = false;
                 FocusModes = false;
             };
-
             NSGlobalDomain = {
                 KeyRepeat = 1; # how long between each repeat
                 InitialKeyRepeat = 18; # how long before repeating
                 NSWindowShouldDragOnGesture = true;
                 AppleShowAllFiles = true;
             };
-
             screensaver = {
                 askForPassword = true;
                 askForPasswordDelay = 0;
             };
-
             finder = {
-                ShowPathbar = true;
+                AppleShowAllExtensions  = true;
+                AppleShowAllFiles       = true;
+                # AppleShowScrollBars     = true;
+                FXPreferredViewStyle = "Nlsv"; # list view
+                NewWindowTarget     = "Home";
+                # ShowPathBar = true;
+                ShowStatusBar = true;
+                _FXShowPosixPathInTitle = true;
             };
         };
     };

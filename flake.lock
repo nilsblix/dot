@@ -451,11 +451,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1764796582,
-        "narHash": "sha256-hsH8nzzORfn9KfRSiXFNk9XCw3TQzPRJyn4zCkAz3tc=",
+        "lastModified": 1765036991,
+        "narHash": "sha256-ay9iBcPywpsDV6TWWGLxj+r74B6ysX8bHvelsSYXazM=",
         "owner": "nilsblix",
         "repo": "neovim-flake",
-        "rev": "2de812123e781fc22aaa0b42444af297b3fe0d9b",
+        "rev": "9a97a666ed01b5a1192bf1117c59fbb11baa9e36",
         "type": "github"
       },
       "original": {
