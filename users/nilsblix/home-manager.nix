@@ -52,7 +52,7 @@ in {
         # I hate this.
         pkgs.nodejs_24
         # Required to install zig_0_15.
-        inputs.nixpkgs-unstable.legacyPackages.${pkgs.system}.zig
+        inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.zig
 
         # Overlays
         pkgs.neovim-flake
@@ -221,7 +221,7 @@ in {
         enable = true;
         shellAliases = shellAliases "zsh";
         initContent = lib.concatStrings [ ''
-            eval "$(${inputs.glowstick.packages.${pkgs.system}.default}/bin/main zsh vwm)"
+            eval "$(${inputs.glowstick.packages.${pkgs.stdenv.hostPlatform.system}.default}/bin/main zsh vwm)"
         '' yaziCdScript ];
     };
 
@@ -229,16 +229,18 @@ in {
         enable = true;
         shellAliases = shellAliases "bash";
         initExtra = lib.concatStrings [ ''
-            eval "$(${inputs.glowstick.packages.${pkgs.system}.default}/bin/main bash vwm)"
+            eval "$(${inputs.glowstick.packages.${pkgs.stdenv.hostPlatform.system}.default}/bin/main bash vwm)"
         '' yaziCdScript ];
     };
 
     programs.git = {
         enable = true;
-        userName = "nilsblix";
-        userEmail = secrets.personal_email;
 
-        extraConfig = {
+        settings.user = {
+            name = "nilsblix";
+            email = secrets.personal_email;
+
+            # Old `extraConfig`.
             github.user = "nilsblix";
             credential.helper = "osxkeychain";
         };

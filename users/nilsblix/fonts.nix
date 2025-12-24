@@ -5,7 +5,7 @@
             hack-font
             nerd-fonts.jetbrains-mono
             nerd-fonts.lilex
-            inputs.monaco-nf.packages.${pkgs.system}.monaco
+            inputs.monaco-nf.packages.${pkgs.stdenv.hostPlatform.system}.monaco
         ];
     };
 }
