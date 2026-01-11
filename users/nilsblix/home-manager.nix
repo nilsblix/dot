@@ -11,8 +11,9 @@
         nd = "nix develop -c " + shell;
         gs = "git status";
         gd = "git diff";
+        da = "direnv allow";
         codex = "~/.local/lib/bin/codex";
-        c = "cd $(fd | fzf)";
+        c = "cd $(fd --type=dir | fzf)";
     };
 
     yaziCdScript = ''
@@ -93,7 +94,6 @@ in {
             keybind = shift+enter=text:\n
 
             macos-titlebar-style = native
-            macos-titlebar-proxy-icon = hidden
         '';
         ".vim/colors/hybrid.vim".source = ./hybrid.vim;
         ".vimrc".text = ''
@@ -221,7 +221,7 @@ in {
         enable = true;
         shellAliases = shellAliases "zsh";
         initContent = lib.concatStrings [ ''
-            eval "$(${inputs.glowstick.packages.${pkgs.stdenv.hostPlatform.system}.default}/bin/main zsh vwm)"
+            eval "$(${inputs.glowstick.packages.${pkgs.stdenv.hostPlatform.system}.default}/bin/main zsh enhanced-def)"
         '' yaziCdScript ];
     };
 
@@ -229,7 +229,7 @@ in {
         enable = true;
         shellAliases = shellAliases "bash";
         initExtra = lib.concatStrings [ ''
-            eval "$(${inputs.glowstick.packages.${pkgs.stdenv.hostPlatform.system}.default}/bin/main bash vwm)"
+            eval "$(${inputs.glowstick.packages.${pkgs.stdenv.hostPlatform.system}.default}/bin/main bash enhanced-def)"
         '' yaziCdScript ];
     };
 

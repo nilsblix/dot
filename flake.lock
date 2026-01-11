@@ -36,11 +36,11 @@
     "cursor-dark-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1766446803,
-        "narHash": "sha256-nUYhaNsgCtB6Z+IQRH4HzgeV7Dicd+RLZoOwZWwwAIw=",
+        "lastModified": 1767210263,
+        "narHash": "sha256-BVMIA2alUdhzI0EW3vQvYCR1eRBfQbPehlJqjdPJ13I=",
         "owner": "nilsblix",
         "repo": "cursor-dark.nvim",
-        "rev": "3f8fdef25ed8085ad2c9d5fe3e92ad04b9719087",
+        "rev": "8748573a8664bd0b6f62c4c30d83fda8d0dd2f3e",
         "type": "github"
       },
       "original": {
@@ -199,11 +199,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1764794536,
-        "narHash": "sha256-8Q9n35Ek/3XY5r+uC5jSICHEX7CcZux+cJoz/0vGlGU=",
+        "lastModified": 1768171132,
+        "narHash": "sha256-YDEfGYGGjd3MQQVCtQ0qD2x6TOM9WeDx3fFDtJNyPtY=",
         "owner": "nilsblix",
         "repo": "glowstick",
-        "rev": "69f86c15fa8dca8c30c695f891cb9f26d2f53096",
+        "rev": "e0fce509e1ad4430f7f1c36244c0f9eaf65b5820",
         "type": "github"
       },
       "original": {
@@ -345,11 +345,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1767047735,
-        "narHash": "sha256-0AI4hLphqmBlAkGHFb7X97Z8Dw1cmwMnlYYpwhAg5+4=",
+        "lastModified": 1768173270,
+        "narHash": "sha256-LK80aB+jSknEEkM2zUaq7wW708FNcPyyTcJpKCm61hY=",
         "owner": "nilsblix",
         "repo": "neovim-flake",
-        "rev": "c626eb98bce9a6a443eacb3194041c012ac5e340",
+        "rev": "173cf2954ab9194503040f05ca6fc1cc36d8ed43",
         "type": "github"
       },
       "original": {
