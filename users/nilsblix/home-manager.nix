@@ -12,7 +12,7 @@
         gs = "git status";
         gd = "git diff";
         da = "direnv allow";
-        codex = "~/.local/lib/bin/codex";
+        codex = "nix run github:numtide/llm-agents.nix#codex";
         c = "cd $(fd --type=dir | fzf)";
     };
 
@@ -49,11 +49,6 @@ in {
         pkgs.discord
         pkgs.dbgate
         pkgs.postman
-
-        # I hate this.
-        pkgs.nodejs_24
-        # Required to install zig_0_15.
-        inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.zig
 
         # Overlays
         pkgs.neovim-flake

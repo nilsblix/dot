@@ -2,9 +2,9 @@
 {
     fonts = {
         packages = with pkgs; [
-            hack-font
+            courier-prime
+            iosevka
             nerd-fonts.jetbrains-mono
-            nerd-fonts.lilex
             inputs.monaco-nf.packages.${pkgs.stdenv.hostPlatform.system}.monaco
         ];
     };
