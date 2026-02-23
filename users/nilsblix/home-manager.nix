@@ -242,8 +242,9 @@ in {
             github.user = "nilsblix";
             credential.helper = "osxkeychain";
 
-            # Force SSH for GitHub remotes, so pushes do not use HTTPS auth prompts.
-            url."git@github.com:".insteadOf = "https://github.com/";
+            # Force HTTPS for GitHub remotes and cache credentials in Keychain.
+            # This also converts existing SSH remotes transparently.
+            url."https://github.com/".insteadOf = "git@github.com:";
         };
 
         includes = [
