@@ -127,6 +127,7 @@ in {
             nnoremap <leader>p <C-^>
             nnoremap <C-c> :cnext<CR>
             nnoremap <C-k> :cprev<CR>
+            nnoremap <Esc><Esc> :silent! nohlsearch<CR>
         '';
     } // (if isDarwin then {
             ".config/karabiner/karabiner.json".source = ./karabiner.json;

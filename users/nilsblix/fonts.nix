@@ -5,7 +5,7 @@
             courier-prime
             iosevka
             nerd-fonts.jetbrains-mono
-            inputs.monaco-nf.packages.${pkgs.stdenv.hostPlatform.system}.monaco
+            inputs.sf-mono-nf.packages.${pkgs.stdenv.hostPlatform.system}.default
         ];
     };
 }

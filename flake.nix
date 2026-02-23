@@ -22,9 +22,6 @@
         dot-private.url = "git+https://github.com/nilsblix/dot-private";
         dot-private.flake = false;
 
-        monaco-nf.url = "github:thep0y/monaco-nerd-font";
-
-        rusty-prompt.url = "github:nilsblix/prompt";
         glowstick.url = "github:nilsblix/glowstick";
         sf-mono-nf.url = "github:nilsblix/sf-mono-nf";
         neovim-flake.url = "github:nilsblix/neovim-flake";
