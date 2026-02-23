@@ -242,9 +242,10 @@ in {
             github.user = "nilsblix";
             credential.helper = "osxkeychain";
 
-            # Force HTTPS for GitHub remotes and cache credentials in Keychain.
-            # This also converts existing SSH remotes transparently.
-            url."https://github.com/".insteadOf = "git@github.com:";
+            # Force SSH for personal GitHub repos only.
+            # Keep KTH config isolated via the gitdir include below.
+            url."git@github.com:nilsblix/".insteadOf = "https://github.com/nilsblix/";
+            url."git@github.com:nilsblix/".pushInsteadOf = "https://github.com/nilsblix/";
         };
 
         includes = [
