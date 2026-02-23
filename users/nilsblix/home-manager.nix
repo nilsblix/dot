@@ -241,11 +241,6 @@ in {
             # Old `extraConfig`.
             github.user = "nilsblix";
             credential.helper = "osxkeychain";
-
-            # Force SSH for personal GitHub repos only.
-            # Keep KTH config isolated via the gitdir include below.
-            url."git@github.com:nilsblix/".insteadOf = "https://github.com/nilsblix/";
-            url."git@github.com:nilsblix/".pushInsteadOf = "https://github.com/nilsblix/";
         };
 
         includes = [
