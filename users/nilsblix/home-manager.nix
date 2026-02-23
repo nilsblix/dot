@@ -232,13 +232,18 @@ in {
     programs.git = {
         enable = true;
 
-        settings.user = {
-            name = "nilsblix";
-            email = secrets.personal_email;
+        settings = {
+            user = {
+                name = "nilsblix";
+                email = secrets.personal_email;
+            };
 
             # Old `extraConfig`.
             github.user = "nilsblix";
             credential.helper = "osxkeychain";
+
+            # Force SSH for GitHub remotes, so pushes do not use HTTPS auth prompts.
+            url."git@github.com:".insteadOf = "https://github.com/";
         };
 
         includes = [
