@@ -191,7 +191,7 @@ in {
             };
             font = {
                 normal = {
-                    family = "Monaco";
+                    family = "JetBrainsMono Nerd Font";
                 };
                 size = if isDarwin then 16 else 13;
             };
