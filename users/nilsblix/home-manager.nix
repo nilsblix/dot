@@ -217,7 +217,7 @@ in {
         enable = true;
         shellAliases = shellAliases "zsh";
         initContent = lib.concatStrings [ ''
-            eval "$(${inputs.glowstick.packages.${pkgs.stdenv.hostPlatform.system}.default}/bin/main zsh enhanced-def)"
+            eval "$(${inputs.glowstick.packages.${pkgs.stdenv.hostPlatform.system}.default}/bin/main zsh groovy)"
         '' yaziCdScript ];
     };
 
@@ -225,7 +225,7 @@ in {
         enable = true;
         shellAliases = shellAliases "bash";
         initExtra = lib.concatStrings [ ''
-            eval "$(${inputs.glowstick.packages.${pkgs.stdenv.hostPlatform.system}.default}/bin/main bash enhanced-def)"
+            eval "$(${inputs.glowstick.packages.${pkgs.stdenv.hostPlatform.system}.default}/bin/main bash groovy)"
         '' yaziCdScript ];
     };
 
