@@ -241,6 +241,8 @@ in {
             # Old `extraConfig`.
             github.user = "nilsblix";
             credential.helper = "osxkeychain";
+            url."git@github.com:nilsblix/".insteadOf = "https://github.com/nilsblix/";
+            url."git@github.com:nilsblix/".pushInsteadOf = "https://github.com/nilsblix/";
         };
 
         includes = [
