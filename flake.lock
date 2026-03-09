@@ -206,11 +206,11 @@
         "xcode-nvim": "xcode-nvim"
       },
       "locked": {
-        "lastModified": 1771869708,
-        "narHash": "sha256-Ux1bpNG5eJTcgqUv83ES5iidElINz+7QMVxIzMbNnWE=",
+        "lastModified": 1772577537,
+        "narHash": "sha256-B1FwRB7C5kTQ7bA6MVOx51tkPAlvW3GMEdh1Mp0PeSs=",
         "owner": "nilsblix",
         "repo": "neovim-flake",
-        "rev": "a2f27221a244f1cc9fce7b50c10d2aa7732c5ec2",
+        "rev": "a5740d259b92708cdf5e94251b53e8d3e87d1ddb",
         "type": "github"
       },
       "original": {

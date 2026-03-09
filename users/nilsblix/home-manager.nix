@@ -36,11 +36,12 @@ in {
 
     programs.home-manager.enable = true;
 
-    home.packages = [ # alphabetical order
+    home.packages = [
         pkgs.git
         pkgs.gh
         pkgs.ripgrep
         pkgs.tree
+        pkgs.tmux
 
         pkgs.fd
         pkgs.dust
@@ -53,22 +54,22 @@ in {
         # Overlays
         pkgs.neovim-flake
     ] ++ (if isDarwin then [
-            pkgs.chatgpt
-        ] else [ # Is on NixOS instead.
-                pkgs.spotify
-                pkgs.xclip
-                pkgs.oversteer
-                pkgs.linuxHeaders
-                pkgs.heroic
-            ]);
-
-    programs.fzf.enable = true;
+        pkgs.chatgpt
+        pkgs.sioyek
+    ] else [
+        pkgs.spotify
+        pkgs.xclip
+        pkgs.oversteer
+        pkgs.linuxHeaders
+        pkgs.heroic
+    ]);
 
     home.file = {
         ".config/ghostty/config".text = ''
             font-feature = -calt, -liga, -dlig
+            font-family = Lilex
 
-            background = #030303
+            background = #141414
             foreground = #B4B3B5
             font-size = 16
 
@@ -79,15 +80,8 @@ in {
             cursor-style-blink = false
             cursor-click-to-move = true
             mouse-hide-while-typing = true
+
             window-padding-balance = false
-
-            keybind = cmd+h=goto_split:left
-            keybind = cmd+j=goto_split:down
-            keybind = cmd+k=goto_split:up
-            keybind = cmd+l=goto_split:right
-
-            keybind = shift+enter=text:\n
-
             macos-titlebar-style = native
         '';
         ".vim/colors/hybrid.vim".source = ./hybrid.vim;
@@ -137,51 +131,33 @@ in {
         EDITOR = "nvim";
     };
 
-    # programs.fzf.enable = true;
+    programs.fzf.enable = true;
     programs.yazi.enable = true;
 
-    programs.tmux = {
-        enable = true;
-        baseIndex = 1;
-        prefix = "C-Space";
-        disableConfirmationPrompt = true;
-        customPaneNavigationAndResize = true;
-        mouse = true;
-        extraConfig = ''
-            unbind r
-            bind r source-file ~/.config/tmux/tmux.conf\; display-message "Config reloaded..."
-
-            bind h select-pane -L
-            bind j select-pane -D
-            bind k select-pane -U
-            bind l select-pane -R
-
-            set -g status-interval 1
-
-            set -g renumber-windows on
-
-            set -g status-position top
-            set -g status-justify absolute-centre
-
-            set -g message-style "bg=color88,fg=white"
-            set -g mode-style "bg=color88,fg=white"
-
-            set -g pane-border-style "fg=#063540"
-            set -g pane-active-border-style "fg=#268bd3"
-
-            set -g @FG_COLOR "#E6E6E7"
-            set -g @BG_COLOR "default"
-
-            set-option -g status-style 'bg=#{@BG_COLOR},fg=#{@FG_COLOR}'
-            set -g window-status-format ' #I:#{pane_current_command} #(p="#{pane_current_path}"; [ "$p" = "$HOME" ] && echo "~" || basename "$p") '
-            set -g window-status-style 'bg=#303030'
-            set -g window-status-current-format ' #I:#{pane_current_command} #(p="#{pane_current_path}"; [ "$p" = "$HOME" ] && echo "~" || basename "$p") '
-            set -g window-status-current-style 'bg=#545454,fg=#{@FG_COLOR}'
-
-            set -g status-left ""
-            set -g status-right ""
-        '';
-    };
+    # programs.zellij = {
+    #     enable = true;
+    #     extraConfig = ''
+    #         keybinds {
+    #             normal clear-defaults=true {
+    #                 bind "Super c" { Copy; }
+    #                 bind "Super w" { CloseTab; }
+    #                 bind "Super t" { NewTab; }
+    #                 bind "Super r" { SwitchToMode "tab"; }
+    #                 bind "Super p" { SwitchToMode "pane"; }
+    #             }
+    #         }
+    #
+    #         theme "menace"
+    #         pane_frames false
+    #         show_startup_tips false
+    #
+    #         ui {
+    #             pane_frames {
+    #                 rounded_corners true
+    #             }
+    #         }
+    #     '';
+    # };
 
     programs.alacritty = {
         enable = true;
