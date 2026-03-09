@@ -53,7 +53,7 @@ in {
 
         inputs.neovim-flake.packages.${pkgs.system}.default
     ] ++ (if isDarwin then [
-        pkgs.chatgpt
+        pkgs.ghostty-bin
         pkgs.sioyek
     ] else [
         pkgs.spotify

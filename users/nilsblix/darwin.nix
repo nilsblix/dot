@@ -21,7 +21,6 @@
             "karabiner-elements"
             "surfshark"
             "google-chrome"
-            "ghostty"
             "spotify"
             "mattermost"
             "microsoft-powerpoint"
@@ -50,11 +49,7 @@
                 wvous-bl-corner = 10; # put display to sleep
                 wvous-tr-corner = 1; # off
                 wvous-br-corner = 1; # off
-                persistent-apps = [
-                    {
-                        app = "/Applications/Ghostty.app";
-                    }
-                ];
+                persistent-apps = [];
             };
             controlcenter = {
                 Sound = true;
