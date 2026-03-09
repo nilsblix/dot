@@ -28,10 +28,7 @@
     };
 
     outputs = { nixpkgs, ... }@inputs: let
-        overlays = [
-            inputs.neovim-flake.overlays.default
-        ];
-
+        overlays = [];
         mkSystem = import ./lib/mksystem.nix {
             inherit overlays nixpkgs inputs;
         };

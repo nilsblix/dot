@@ -51,8 +51,7 @@ in {
         pkgs.dbgate
         pkgs.postman
 
-        # Overlays
-        pkgs.neovim-flake
+        inputs.neovim-flake.packages.${pkgs.system}.default
     ] ++ (if isDarwin then [
         pkgs.chatgpt
         pkgs.sioyek
