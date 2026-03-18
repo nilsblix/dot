@@ -14,6 +14,7 @@
         da = "direnv allow";
         codex = "nix run github:numtide/llm-agents.nix#codex";
         c = "cd $(fd --type=dir | fzf)";
+        nvim = "nix run github:nilsblix/neovim-flake";
     };
 
     yaziCdScript = ''
@@ -51,7 +52,7 @@ in {
         pkgs.dbgate
         pkgs.postman
 
-        inputs.neovim-flake.packages.${pkgs.system}.default
+        # inputs.neovim-flake.packages.${pkgs.system}.default
     ] ++ (if isDarwin then [
         pkgs.ghostty-bin
         pkgs.sioyek
@@ -66,9 +67,9 @@ in {
     home.file = {
         ".config/ghostty/config".text = ''
             font-feature = -calt, -liga, -dlig
-            font-family = Lilex
+            # font-family = Lilex
 
-            background = #141414
+            background = #1A181F
             foreground = #B4B3B5
             font-size = 16
 
@@ -127,7 +128,7 @@ in {
         } else {});
 
     home.sessionVariables = {
-        EDITOR = "nvim";
+        EDITOR = "vim";
     };
 
     programs.fzf.enable = true;

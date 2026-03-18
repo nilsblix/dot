@@ -32,6 +32,16 @@ in systemFunc rec {
             nixpkgs.config.allowUnfree = true;
             nixpkgs.overlays = overlays;
             nix.nixPath = [ "nixpkgs=${nixpkgs}" ];
+
+            nix.settings = {
+                extra-substituters = [
+                    "https://nix-community.cachix.org"
+                    "https://cache.numtide.com"
+                ];
+                extra-trusted-public-keys = [
+                    "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g="
+                ];
+            };
         }
 
         machineConfig

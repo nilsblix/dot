@@ -24,7 +24,6 @@
 
         glowstick.url = "github:nilsblix/glowstick";
         sf-mono-nf.url = "github:nilsblix/sf-mono-nf";
-        neovim-flake.url = "github:nilsblix/neovim-flake";
     };
 
     outputs = { nixpkgs, ... }@inputs: let
