@@ -34,6 +34,9 @@ in systemFunc rec {
             nix.nixPath = [ "nixpkgs=${nixpkgs}" ];
 
             nix.settings = {
+                trusted-users = [
+                    user
+                ];
                 extra-substituters = [
                     "https://nix-community.cachix.org"
                     "https://cache.numtide.com"

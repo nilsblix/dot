@@ -67,7 +67,6 @@ in {
     home.file = {
         ".config/ghostty/config".text = ''
             font-feature = -calt, -liga, -dlig
-            # font-family = Lilex
 
             background = #1A181F
             foreground = #B4B3B5
@@ -193,7 +192,7 @@ in {
         enable = true;
         shellAliases = shellAliases "zsh";
         initContent = lib.concatStrings [ ''
-            eval "$(${inputs.glowstick.packages.${pkgs.stdenv.hostPlatform.system}.default}/bin/main zsh groovy)"
+            eval "$(${inputs.glowstick.packages.${pkgs.stdenv.hostPlatform.system}.default}/bin/main zsh enhanced-def)"
         '' yaziCdScript ];
     };
 
