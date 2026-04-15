@@ -1,6 +1,6 @@
-# dot
+# nixfiles
 
-Public Nix flake configuration for macOS (nix-darwin) and NixOS, including Home Manager and declarative Homebrew.
+> Personal Nix-configuration for my main systems.
 
 ## Flake Outputs
 
@@ -10,7 +10,8 @@ Public Nix flake configuration for macOS (nix-darwin) and NixOS, including Home 
 ## Installation
 
 Notes
-- This flake depends on a private repo `nilsblix/dot-private`. Authenticate GitHub before building.
+- This flake depends on a private repo `nilsblix/dot-private`. Authenticate
+  GitHub before building.
 - Nix 2.18+ is recommended. Flakes are enabled in the configs.
 
 ### macOS (nix-darwin)
@@ -71,5 +72,6 @@ Notes
 
 ## Notes
 
-- Darwin config enables declarative Homebrew via `nix-homebrew`; Homebrew is set up automatically and casks are managed in `users/nilsblix/darwin.nix`.
+- Darwin config enables declarative Homebrew via `nix-homebrew`; Homebrew is
+  set up automatically and casks are managed in `users/nilsblix/darwin.nix`.
 - Channels are pinned to the 25.11 releases in `flake.nix`.

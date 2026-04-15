@@ -14,7 +14,7 @@
         da = "direnv allow";
         codex = "nix run github:numtide/llm-agents.nix#codex";
         c = "cd $(fd --type=dir | fzf)";
-        nvim = "nix run github:nilsblix/neovim-flake";
+        nvim = "~/neovim-flake/result/bin/nvim";
     };
 
     yaziCdScript = ''
@@ -68,7 +68,7 @@ in {
         ".config/ghostty/config".text = ''
             font-feature = -calt, -liga, -dlig
 
-            background = #1A181F
+            background = #000000
             foreground = #B4B3B5
             font-size = 16
 
@@ -81,9 +81,14 @@ in {
             mouse-hide-while-typing = true
 
             window-padding-balance = false
+            # macos-titlebar-style = tabs
             macos-titlebar-style = native
+
+            keybind = cmd+k=goto_split:top
+            keybind = cmd+j=goto_split:bottom
+            keybind = cmd+h=goto_split:left
+            keybind = cmd+l=goto_split:right
         '';
-        ".vim/colors/hybrid.vim".source = ./hybrid.vim;
         ".vimrc".text = ''
             syntax on
             set ai
@@ -101,11 +106,7 @@ in {
             set clipboard+=unnamed
             set path+=**
             set laststatus=2
-
             set background=dark
-            colorscheme hybrid
-
-            highlight Comment ctermfg=green
 
             if executable("rg")
                 set grepprg=rg\ --vimgrep\ --no-heading
@@ -120,7 +121,7 @@ in {
             nnoremap <leader>p <C-^>
             nnoremap <C-c> :cnext<CR>
             nnoremap <C-k> :cprev<CR>
-            nnoremap <Esc><Esc> :silent! nohlsearch<CR>
+            nnoremap <Esc> :silent! nohlsearch<CR><Esc>
         '';
     } // (if isDarwin then {
             ".config/karabiner/karabiner.json".source = ./karabiner.json;
@@ -192,7 +193,7 @@ in {
         enable = true;
         shellAliases = shellAliases "zsh";
         initContent = lib.concatStrings [ ''
-            eval "$(${inputs.glowstick.packages.${pkgs.stdenv.hostPlatform.system}.default}/bin/main zsh enhanced-def)"
+            eval "$(${inputs.glowstick.packages.${pkgs.stdenv.hostPlatform.system}.default}/bin/main zsh fish)"
         '' yaziCdScript ];
     };
 
