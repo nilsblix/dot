@@ -51,8 +51,6 @@ in {
         pkgs.discord
         pkgs.dbgate
         pkgs.postman
-
-        # inputs.neovim-flake.packages.${pkgs.system}.default
     ] ++ (if isDarwin then [
         pkgs.ghostty-bin
         pkgs.sioyek
@@ -133,55 +131,7 @@ in {
 
     programs.fzf.enable = true;
     programs.yazi.enable = true;
-
-    # programs.zellij = {
-    #     enable = true;
-    #     extraConfig = ''
-    #         keybinds {
-    #             normal clear-defaults=true {
-    #                 bind "Super c" { Copy; }
-    #                 bind "Super w" { CloseTab; }
-    #                 bind "Super t" { NewTab; }
-    #                 bind "Super r" { SwitchToMode "tab"; }
-    #                 bind "Super p" { SwitchToMode "pane"; }
-    #             }
-    #         }
-    #
-    #         theme "menace"
-    #         pane_frames false
-    #         show_startup_tips false
-    #
-    #         ui {
-    #             pane_frames {
-    #                 rounded_corners true
-    #             }
-    #         }
-    #     '';
-    # };
-
-    programs.alacritty = {
-        enable = true;
-        settings = {
-            env = {
-                TERM = "xterm-256color";
-            };
-            font = {
-                normal = {
-                    family = "JetBrainsMono Nerd Font";
-                };
-                size = if isDarwin then 16 else 13;
-            };
-            window.dynamic_title = true;
-            colors.primary.background = "#000000";
-            colors.primary.foreground= "#B4B3B5";
-            mouse = {
-                hide_when_typing = true;
-            };
-            selection = {
-                save_to_clipboard = true;
-            };
-        };
-    };
+    programs.alacritty.enable = true;
 
     programs.direnv = {
         enable = true;
