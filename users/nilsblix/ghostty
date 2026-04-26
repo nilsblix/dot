@@ -1,0 +1,22 @@
+font-feature = -calt, -liga, -dlig
+font-size = 16
+
+background = #000000
+foreground = #B4B3B5
+split-divider-color = #1199da
+cursor-color = #FFB96E
+
+shell-integration-features = no-cursor
+cursor-style = block
+cursor-opacity = 0.75
+cursor-style-blink = false
+cursor-click-to-move = true
+mouse-hide-while-typing = true
+
+window-padding-balance = false
+macos-titlebar-style = native
+
+keybind = cmd+k=goto_split:top
+keybind = cmd+j=goto_split:bottom
+keybind = cmd+h=goto_split:left
+keybind = cmd+l=goto_split:right

@@ -63,67 +63,44 @@ in {
     ]);
 
     home.file = {
-        ".config/ghostty/config".text = ''
-            font-feature = -calt, -liga, -dlig
-
-            background = #000000
-            foreground = #B4B3B5
-            font-size = 16
-
-            shell-integration-features = no-cursor
-            cursor-style = block
-            cursor-color = #FFB96E
-            cursor-opacity = 0.75
-            cursor-style-blink = false
-            cursor-click-to-move = true
-            mouse-hide-while-typing = true
-
-            window-padding-balance = false
-            # macos-titlebar-style = tabs
-            macos-titlebar-style = native
-
-            keybind = cmd+k=goto_split:top
-            keybind = cmd+j=goto_split:bottom
-            keybind = cmd+h=goto_split:left
-            keybind = cmd+l=goto_split:right
-        '';
+        ".config/ghostty/config".source = ./ghostty;
         ".vimrc".text = ''
-            syntax on
-            set ai
-            set et
-            set shiftwidth=4
-            set tabstop=4
-            set nowrap
-            set sta
-            set incsearch
-            set hlsearch
-            set scrolloff=10
-            set autoread
-            set noswapfile
-            set mouse=a
-            set clipboard+=unnamed
-            set path+=**
-            set laststatus=2
-            set background=dark
+syntax on
+set ai
+set et
+set shiftwidth=4
+set tabstop=4
+set nowrap
+set sta
+set incsearch
+set hlsearch
+set scrolloff=10
+set autoread
+set noswapfile
+set mouse=a
+set clipboard+=unnamed
+set path+=**
+set laststatus=2
+set background=dark
 
-            if executable("rg")
-                set grepprg=rg\ --vimgrep\ --no-heading
-            endif
-            set grepformat=%f:%l:%c%m
-            command! -nargs=+ -complete=file -bar Grep silent grep <args>|cope|redraw!
+if executable("rg")
+set grepprg=rg\ --vimgrep\ --no-heading
+endif
+set grepformat=%f:%l:%c%m
+command! -nargs=+ -complete=file -bar Grep silent grep <args>|cope|redraw!
 
-            let g:mapleader = " "
-            nnoremap <leader>sf :find 
-            nnoremap <leader>sg :Grep 
-            nnoremap <leader>n :Ex<CR>
-            nnoremap <leader>p <C-^>
-            nnoremap <C-c> :cnext<CR>
-            nnoremap <C-k> :cprev<CR>
-            nnoremap <Esc> :silent! nohlsearch<CR><Esc>
+let g:mapleader = " "
+nnoremap <leader>sf :find 
+nnoremap <leader>sg :Grep 
+nnoremap <leader>n :Ex<CR>
+nnoremap <leader>p <C-^>
+nnoremap <C-c> :cnext<CR>
+nnoremap <C-k> :cprev<CR>
+nnoremap <Esc> :silent! nohlsearch<CR><Esc>
         '';
     } // (if isDarwin then {
-            ".config/karabiner/karabiner.json".source = ./karabiner.json;
-        } else {});
+        ".config/karabiner/karabiner.json".source = ./karabiner.json;
+    } else {});
 
     home.sessionVariables = {
         EDITOR = "vim";
@@ -164,18 +141,17 @@ in {
                 email = secrets.personal_email;
             };
 
-            # Old `extraConfig`.
             github.user = "nilsblix";
             credential.helper = "osxkeychain";
-            url."git@github.com:nilsblix/".insteadOf = "https://github.com/nilsblix/";
-            url."git@github.com:nilsblix/".pushInsteadOf = "https://github.com/nilsblix/";
         };
 
         includes = [
             {
-                condition = "gitdir:~/Code/kth/";
+                condition = "gitdir:~/Code/kth/**";
                 contents = {
                     user = secrets.kth;
+                    url."ssh://nblix@gits-15.sys.kth.se/".insteadOf = "https://gits-15.sys.kth.se/";
+                    url."ssh://nblix@gits-15.sys.kth.se/".pushInsteadOf = "https://gits-15.sys.kth.se/";
                 };
             }
         ];
