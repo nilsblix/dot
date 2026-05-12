@@ -33,6 +33,26 @@
         "url": "https://github.com/nilsblix/dot-private"
       }
     },
+    "flake-parts": {
+      "inputs": {
+        "nixpkgs-lib": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1775087534,
+        "narHash": "sha256-91qqW8lhL7TLwgQWijoGBbiD4t7/q75KTi8NxjVmSmA=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "3107b77cd68437b9a76194f0f7f9c55f2329ca5b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "type": "github"
+      }
+    },
     "flake-utils": {
       "inputs": {
         "systems": "systems"
@@ -66,25 +86,6 @@
       "original": {
         "owner": "numtide",
         "repo": "flake-utils",
-        "type": "github"
-      }
-    },
-    "glowstick": {
-      "inputs": {
-        "flake-utils": "flake-utils",
-        "nixpkgs": "nixpkgs"
-      },
-      "locked": {
-        "lastModified": 1776286166,
-        "narHash": "sha256-dP7sgl4XsteDOG95QTb7CJ0+ddF/2jstdOa3ZwIhqy0=",
-        "owner": "nilsblix",
-        "repo": "glowstick",
-        "rev": "80fe916d711e3e9c8e981c082cc791737b3cf572",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nilsblix",
-        "repo": "glowstick",
         "type": "github"
       }
     },
@@ -138,6 +139,59 @@
       "original": {
         "owner": "homebrew",
         "repo": "homebrew-core",
+        "type": "github"
+      }
+    },
+    "import-tree": {
+      "locked": {
+        "lastModified": 1773693634,
+        "narHash": "sha256-BtZ2dtkBdSUnFPPFc+n0kcMbgaTxzFNPv2iaO326Ffg=",
+        "owner": "vic",
+        "repo": "import-tree",
+        "rev": "c41e7d58045f9057880b0d85e1152d6a4430dbf1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "vic",
+        "repo": "import-tree",
+        "type": "github"
+      }
+    },
+    "nilsblix-glowstick": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1777471244,
+        "narHash": "sha256-eHpapJRnIOtmTQmleGE2Y6YTIAMeuuJztzOnhVQqZfw=",
+        "owner": "nilsblix",
+        "repo": "glowstick",
+        "rev": "a653daf78a431f9a4ae955b44acaa8edc41c9529",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nilsblix",
+        "repo": "glowstick",
+        "type": "github"
+      }
+    },
+    "nilsblix-sf-mono-nf": {
+      "inputs": {
+        "flake-utils": "flake-utils_2",
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "lastModified": 1750603012,
+        "narHash": "sha256-VCrBXlJMNrKyxX/WLDeti6jHosu08H5Vq05spBkq3Gg=",
+        "owner": "nilsblix",
+        "repo": "sf-mono-nf",
+        "rev": "53476ccdcae556c68ad99cf93b15d730ef88328e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nilsblix",
+        "repo": "sf-mono-nf",
         "type": "github"
       }
     },
@@ -214,22 +268,6 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1773705440,
-        "narHash": "sha256-xB30bbAp0e7ogSEYyc126mAJMt4FRFh8wtm6ADE1xuM=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "48652e9d5aea46e555b3df87354280d4f29cd3a3",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-25.11",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_3": {
-      "locked": {
         "lastModified": 1750365781,
         "narHash": "sha256-XE/lFNhz5lsriMm/yjXkvSZz5DfvKJLUjsS6pP8EC50=",
         "owner": "NixOS",
@@ -244,37 +282,36 @@
         "type": "github"
       }
     },
-    "root": {
-      "inputs": {
-        "dot-private": "dot-private",
-        "glowstick": "glowstick",
-        "home-manager": "home-manager",
-        "homebrew-cask": "homebrew-cask",
-        "homebrew-core": "homebrew-core",
-        "nix-darwin": "nix-darwin",
-        "nix-homebrew": "nix-homebrew",
-        "nixpkgs": "nixpkgs_2",
-        "nixpkgs-unstable": "nixpkgs-unstable",
-        "sf-mono-nf": "sf-mono-nf"
-      }
-    },
-    "sf-mono-nf": {
-      "inputs": {
-        "flake-utils": "flake-utils_2",
-        "nixpkgs": "nixpkgs_3"
-      },
+    "nixpkgs_3": {
       "locked": {
-        "lastModified": 1750603012,
-        "narHash": "sha256-VCrBXlJMNrKyxX/WLDeti6jHosu08H5Vq05spBkq3Gg=",
-        "owner": "nilsblix",
-        "repo": "sf-mono-nf",
-        "rev": "53476ccdcae556c68ad99cf93b15d730ef88328e",
+        "lastModified": 1773705440,
+        "narHash": "sha256-xB30bbAp0e7ogSEYyc126mAJMt4FRFh8wtm6ADE1xuM=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "48652e9d5aea46e555b3df87354280d4f29cd3a3",
         "type": "github"
       },
       "original": {
-        "owner": "nilsblix",
-        "repo": "sf-mono-nf",
+        "owner": "NixOS",
+        "ref": "nixos-25.11",
+        "repo": "nixpkgs",
         "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "dot-private": "dot-private",
+        "flake-parts": "flake-parts",
+        "home-manager": "home-manager",
+        "homebrew-cask": "homebrew-cask",
+        "homebrew-core": "homebrew-core",
+        "import-tree": "import-tree",
+        "nilsblix-glowstick": "nilsblix-glowstick",
+        "nilsblix-sf-mono-nf": "nilsblix-sf-mono-nf",
+        "nix-darwin": "nix-darwin",
+        "nix-homebrew": "nix-homebrew",
+        "nixpkgs": "nixpkgs_3",
+        "nixpkgs-unstable": "nixpkgs-unstable"
       }
     },
     "systems": {

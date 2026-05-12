@@ -2,6 +2,10 @@
     description = "Public system configuration via nix";
 
     inputs = {
+        flake-parts.url = "github:hercules-ci/flake-parts";
+        flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
+        import-tree.url = "github:vic/import-tree";
+
         nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
         nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
@@ -22,28 +26,11 @@
         dot-private.url = "git+https://github.com/nilsblix/dot-private";
         dot-private.flake = false;
 
-        glowstick.url = "github:nilsblix/glowstick";
-        sf-mono-nf.url = "github:nilsblix/sf-mono-nf";
+        nilsblix-glowstick.url = "github:nilsblix/glowstick";
+        nilsblix-sf-mono-nf.url = "github:nilsblix/sf-mono-nf";
     };
 
-    outputs = { nixpkgs, ... }@inputs: let
-        overlays = [];
-        mkSystem = import ./lib/mksystem.nix {
-            inherit overlays nixpkgs inputs;
-        };
-    in {
-        darwinConfigurations."macos" = mkSystem "macbook-pro-m1" {
-            system = "aarch64-darwin";
-            user = "nilsblix";
-            darwin = {
-                enable = true;
-                declarativeHomebrew = true;
-            };
-        };
-
-        nixosConfigurations."nixos" = mkSystem "b550e" {
-            system = "x86_64-linux";
-            user = "nilsblix";
-        };
-    };
+    outputs = inputs:
+        inputs.flake-parts.lib.mkFlake { inherit inputs; }
+            (inputs.import-tree ./modules);
 }

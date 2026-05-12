@@ -1,18 +1,20 @@
 font-feature = -calt, -liga, -dlig
+font-family = PlemolJP Console NF
 font-size = 16
-
-background = #000000
-foreground = #B4B3B5
+theme = Moonfly
 split-divider-color = #1199da
+background = #000000
 cursor-color = #FFB96E
 
-shell-integration-features = no-cursor
 cursor-style = block
 cursor-opacity = 0.75
 cursor-style-blink = false
+
+shell-integration-features = no-cursor
 cursor-click-to-move = true
 mouse-hide-while-typing = true
 
+window-theme = system
 window-padding-balance = false
 macos-titlebar-style = native
 

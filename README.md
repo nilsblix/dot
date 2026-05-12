@@ -4,8 +4,15 @@
 
 ## Flake Outputs
 
-- `.#macos` (aarch64-darwin) → `machines/macbook-pro-m1.nix` + `users/nilsblix/darwin.nix`
-- `.#nixos` (x86_64-linux) → `machines/b550e.nix` + `users/nilsblix/nixos.nix`
+- `.#macos` (aarch64-darwin) → `modules/hosts/macbook-pro-m1.nix`
+- `.#nixos` (x86_64-linux) → `modules/hosts/b550e.nix`
+
+## Layout
+
+This repository follows the dendritic pattern: every Nix file below `modules/`
+is a flake-parts module. Feature modules expose lower-level NixOS, nix-darwin,
+and home-manager modules through `flake.modules.*`; host modules compose those
+features into concrete `darwinConfigurations` and `nixosConfigurations`.
 
 ## Installation
 
@@ -73,5 +80,5 @@ Notes
 ## Notes
 
 - Darwin config enables declarative Homebrew via `nix-homebrew`; Homebrew is
-  set up automatically and casks are managed in `users/nilsblix/darwin.nix`.
+  set up automatically and casks are managed in `modules/feats/homebrew.nix`.
 - Channels are pinned to the 25.11 releases in `flake.nix`.
